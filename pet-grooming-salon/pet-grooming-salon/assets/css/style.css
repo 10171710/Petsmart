@@ -79,7 +79,7 @@
   --pv-violet:        #9d90ff;
   --pv-pink:          #ff9cbb;
   --pv-text:          #e9e4db;
-  --pv-muted:         #a7a099;
+  --pv-muted:         #c1b9ae;
   --pv-line:          rgba(255, 255, 255, 0.10);
   --pv-line-strong:   rgba(255, 255, 255, 0.20);
   --clay-highlight:   rgba(255, 255, 255, 0.08);
@@ -99,6 +99,29 @@
       inset 0 1px 0 var(--glass-border);
   --clay-inset:
       inset 0 2px 8px rgba(0, 0, 0, 0.30);
+}
+
+html[data-bs-theme="dark"] { color-scheme: dark; }
+html[data-bs-theme="light"] { color-scheme: light; }
+[data-bs-theme="dark"] .form-clay, [data-bs-theme="dark"] .form-select,
+[data-bs-theme="dark"] .form-control { color-scheme: dark; }
+
+/* Native select text + dropdown options must stay readable in dark mode */
+[data-bs-theme="dark"] select.form-clay,
+[data-bs-theme="dark"] select.form-select {
+  color: var(--pv-text) !important;
+  -webkit-text-fill-color: var(--pv-text);
+}
+[data-bs-theme="dark"] select.form-clay option,
+[data-bs-theme="dark"] select.form-select option {
+  background-color: #1d2230;
+  color: #e9e4db;
+}
+
+/* Brighter secondary / muted text for readability in dark mode */
+[data-bs-theme="dark"] .text-secondary {
+  --bs-secondary-color: #c1b9ae;
+  color: #c1b9ae !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -459,7 +482,7 @@ a:hover { color: var(--pv-primary-deep); }
   z-index: 1050;
 }
 .navbar-brand {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 4px;
   font-size: 1.45rem; color: var(--pv-text);
 }
 .navbar-brand img { width: 42px; height: 42px; }
@@ -787,6 +810,14 @@ a:hover { color: var(--pv-primary-deep); }
 .page-hero {
   padding: 150px 0 70px;
   position: relative; overflow: hidden;
+  text-align: center;
+}
+.page-hero .pv-container > * { margin-inline: auto; }
+.page-hero .breadcrumb { justify-content: center; }
+.page-hero .section-sub { max-width: 640px; }
+.page-hero .eyebrow::after {
+  content: ""; width: 26px; height: 3px; border-radius: 99px;
+  background: var(--pv-primary);
 }
 .page-hero .crumb { color: var(--pv-muted); font-weight: 700; }
 .page-hero .crumb a { color: var(--pv-muted); }
@@ -883,6 +914,10 @@ a:hover { color: var(--pv-primary-deep); }
   content: "–";
   transform: none;
   background: var(--pv-primary); color: #fff;
+}
+[dir="rtl"] .accordion-clay .accordion-button::after {
+  margin-left: 0;
+  margin-right: auto;
 }
 .accordion-clay .accordion-body { padding: 1rem 1.4rem 1.3rem; color: var(--pv-muted); }
 
@@ -1115,6 +1150,10 @@ a:hover { color: var(--pv-primary-deep); }
    -------------------------------------------------------------------------- */
 [dir="rtl"] .check-list li .tick { margin-inline-start: 0; }
 [dir="rtl"] .footer-links a::before { content: "‹"; }
+[dir="rtl"] .pv-footer .row > [class*="col"] { text-align: right; }
+@media (min-width: 992px) {
+  [dir="rtl"] .pv-footer .row > [class*="col"] > p.pe-lg-5 { padding-right: 0 !important; padding-left: 3rem !important; }
+}
 [dir="rtl"] .float-card .fc-label, [dir="rtl"] .float-card .fc-value { text-align: start; }
 [dir="rtl"] .timeline { padding-inline-start: 34px; }
 [dir="rtl"] .step-num { margin-inline-end: 0; }
@@ -1133,8 +1172,15 @@ a:hover { color: var(--pv-primary-deep); }
 /* Keep centered blocks centered in RTL */
 [dir="rtl"] .text-center,
 [dir="rtl"] .section-head.center,
-[dir="rtl"] .cta-banner,
-[dir="rtl"] .testimonial-card { text-align: center; }
+[dir="rtl"] .cta-banner { text-align: center; }
+
+/* Start testimonial content from the right in RTL */
+[dir="rtl"] .testimonial-card:not(.text-center) {
+  text-align: right;
+}
+[dir="rtl"] .testimonial-card:not(.text-center) .d-flex {
+  justify-content: flex-start;
+}
 
 /* All other components mirror automatically because flex rows, grids, and
    logical properties (margin/padding/border/text-align start/end) follow the

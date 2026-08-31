@@ -86,7 +86,7 @@
       includes: [
         { icon: "✂️", title: "Step 1 · Clip", text: "Calm, careful clipping well above the quick for a comfortable cut." },
         { icon: "🌀", title: "Step 2 · Dremel finish", text: "A gentle grind smooths edges and rounds each nail." },
-        { icon: "🐾", title: "Step 3 · Paw-pad tidy", text: "Fur between the pads trimmed so nails sit naturally." },
+        { icon: "🐾️", title: "Step 3 · Paw-pad tidy", text: "Fur between the pads trimmed so nails sit naturally." },
         { icon: "🪵", title: "Step 4 · Dewclaw check", text: "Dewclaws checked and trimmed so they never curl into the skin." }
       ],
       pricingTitle: "Nail Trimming pricing",

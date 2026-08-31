@@ -92,7 +92,7 @@
       <ul class="nav flex-column">
         <li class="nav-item"><a class="nav-link" href="index.html" data-nav="index"><span class="nav-ico">📊</span> Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="bookings.html" data-nav="bookings"><span class="nav-ico">📅</span> My Bookings</a></li>
-        <li class="nav-item"><a class="nav-link" href="pets.html" data-nav="pets"><span class="nav-ico">🐾</span> My Pets</a></li>
+        <li class="nav-item"><a class="nav-link" href="pets.html" data-nav="pets"><span class="nav-ico">🐾️</span> My Pets</a></li>
         <li class="nav-item"><a class="nav-link" href="invoices.html" data-nav="invoices"><span class="nav-ico">🧾</span> Invoices</a></li>
         <li class="nav-item"><a class="nav-link" href="profile.html" data-nav="profile"><span class="nav-ico">👤</span> Profile</a></li>
       </ul>
@@ -230,7 +230,7 @@
     }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
     body.innerHTML = list.length
       ? list.map(appointmentRow).join("")
-      : '<tr><td colspan="6" class="text-center text-secondary py-5">No upcoming appointments — book one below. 🐾</td></tr>';
+      : '<tr><td colspan="6" class="text-center text-secondary py-5">No upcoming appointments — book one below. 🐾️</td></tr>';
     bindAppointmentActions();
   }
 
@@ -243,7 +243,7 @@
     var list = myAppointments().slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     body.innerHTML = list.length
       ? list.map(appointmentRow).join("")
-      : '<tr><td colspan="6" class="text-center text-secondary py-5">You haven\'t booked any grooms yet. 🐾</td></tr>';
+      : '<tr><td colspan="6" class="text-center text-secondary py-5">You haven\'t booked any grooms yet. 🐾️</td></tr>';
     bindAppointmentActions();
   }
 
@@ -258,7 +258,7 @@
     }
     return (
       '<tr data-id="' + a.id + '">' +
-        '<td><div class="d-flex align-items-center gap-2"><span style="font-size:1.3rem">' + (PET_EMOJI[a.pet] || "🐾") + '</span><div><div class="fw-bold">' + escapeHtml(a.petName) + '</div><div class="text-secondary" style="font-size:.8rem">' + escapeHtml(a.breed) + '</div></div></div></td>' +
+        '<td><div class="d-flex align-items-center gap-2"><span style="font-size:1.3rem">' + (PET_EMOJI[a.pet] || "🐾️") + '</span><div><div class="fw-bold">' + escapeHtml(a.petName) + '</div><div class="text-secondary" style="font-size:.8rem">' + escapeHtml(a.breed) + '</div></div></div></td>' +
         '<td><div class="fw-bold">' + a.packageLabel + '</div><div class="text-secondary" style="font-size:.8rem">$' + a.price + '</div></td>' +
         '<td>' + a.date + '<div class="text-secondary" style="font-size:.8rem">' + a.time + '</div></td>' +
         '<td>' + escapeHtml(a.groomer) + '</td>' +
@@ -373,7 +373,7 @@
             '<div class="col-md-6 col-xl-4">' +
               '<div class="clay p-4 h-100 reveal in">' +
                 '<div class="d-flex justify-content-between align-items-start mb-3">' +
-                  '<span style="font-size:2.6rem;line-height:1">' + (PET_EMOJI[p.species] || "🐾") + '</span>' +
+                  '<span style="font-size:2.6rem;line-height:1">' + (PET_EMOJI[p.species] || "🐾️") + '</span>' +
                   '<button class="nav-icon-btn" type="button" data-pet-del="' + escapeHtml(p.id) + '" title="Remove pet" aria-label="Remove pet">🗑</button>' +
                 '</div>' +
                 '<div class="h5 mb-1">' + escapeHtml(p.name) + '</div>' +
@@ -387,7 +387,7 @@
             '</div>'
           );
         }).join("")
-      : '<div class="col-12 text-center text-secondary py-5">No pets saved yet — add your first one below. 🐾</div>';
+      : '<div class="col-12 text-center text-secondary py-5">No pets saved yet — add your first one below. 🐾️</div>';
     document.querySelectorAll("[data-pet-del]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var id = btn.getAttribute("data-pet-del");
@@ -421,7 +421,7 @@
       form.reset();
       renderPets();
       renderStats();
-      window.PawToast(pet.name + " added to your pack! 🐾", "success");
+      window.PawToast(pet.name + " added to your pack! 🐾️", "success");
     });
   }
 
@@ -436,7 +436,7 @@
       ? done.map(function (a) {
           return (
             '<tr>' +
-              '<td><div class="d-flex align-items-center gap-2"><span style="font-size:1.2rem">' + (PET_EMOJI[a.pet] || "🐾") + '</span><span class="fw-bold">' + escapeHtml(a.petName) + '</span></div></td>' +
+              '<td><div class="d-flex align-items-center gap-2"><span style="font-size:1.2rem">' + (PET_EMOJI[a.pet] || "🐾️") + '</span><span class="fw-bold">' + escapeHtml(a.petName) + '</span></div></td>' +
               '<td>' + a.packageLabel + '</td>' +
               '<td>$' + a.price + '.00</td>' +
               '<td>' + a.date + '</td>' +

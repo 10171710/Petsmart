@@ -222,7 +222,7 @@
       "max-width:360px;width:100%;font-family:'Baloo 2',sans-serif;animation:popupIn .3s ease;";
     if (opts.wide) box.style.maxWidth = "540px";
     var bodyHtml =
-      '<div style="font-size:42px;line-height:1">' + (opts.icon || "🐾") + "</div>" +
+      '<div style="font-size:42px;line-height:1">' + (opts.icon || "🐾️") + "</div>" +
       '<div style="font-weight:700;font-size:1.2rem;margin-top:10px">' + (opts.title || "Done!") + "</div>";
     if (opts.content) {
       bodyHtml += '<div style="margin-top:10px;text-align:start;font-size:0.92rem;line-height:1.65;color:#555;max-height:52vh;overflow-y:auto;padding:0 4px">' + opts.content + "</div>";
@@ -381,7 +381,7 @@
         setTimeout(function () {
           btn.disabled = false; btn.innerHTML = "Send Message";
           contactForm.reset();
-          PawToast("Message sent! We'll bark back soon. 🐾", "success");
+          PawToast("Message sent! We'll bark back soon. 🐾️", "success");
         }, 900);
       });
     }
@@ -477,7 +477,7 @@
           email: loginEmail
         });
         if (btn) { btn.disabled = true; btn.innerHTML = isAdmin ? "Signing in…" : "Signing in…"; }
-        PawToast("Welcome back! 🐾");
+        PawToast("Welcome back! 🐾️");
         setTimeout(function () {
           window.location.href = origin || (isAdmin ? "admin/index.html" : "account/index.html");
         }, 1000);

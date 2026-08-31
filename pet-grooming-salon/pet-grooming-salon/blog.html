@@ -58,7 +58,7 @@
 
             <div class="row g-4" id="blog-grid">
               <!-- Post 1 -->
-              <div class="col-md-6 blog-post" data-cat="grooming" data-title="Tangle-free summer coat brushing tips">
+              <div class="col-md-6 blog-post" data-cat="grooming" data-tags="grooming tips summer" data-title="Tangle-free summer coat brushing tips">
                 <article class="clay-card blog-card h-100">
                   <div class="blog-thumb"><img src="assets/images/blog-card-1.jpg" alt="Dog grooming tips article"></div>
                   <div class="blog-body">
@@ -70,7 +70,7 @@
                 </article>
               </div>
               <!-- Post 2 -->
-              <div class="col-md-6 blog-post" data-cat="care" data-title="why cats love a good brush how to do it right">
+              <div class="col-md-6 blog-post" data-cat="care" data-tags="cat care tips brushing" data-title="why cats love a good brush how to do it right">
                 <article class="clay-card blog-card h-100">
                   <div class="blog-thumb"><img src="assets/images/blog-card-2.jpg" alt="Cat brushing article"></div>
                   <div class="blog-body">
@@ -82,7 +82,7 @@
                 </article>
               </div>
               <!-- Post 3 -->
-              <div class="col-md-6 blog-post" data-cat="care" data-title="nail care 101 when to trim what to watch for">
+              <div class="col-md-6 blog-post" data-cat="care" data-tags="tips nail care health" data-title="nail care 101 when to trim what to watch for">
                 <article class="clay-card blog-card h-100">
                   <div class="blog-thumb"><img src="assets/images/blog-card-3.jpg" alt="Nail trimming guide article"></div>
                   <div class="blog-body">
@@ -94,7 +94,7 @@
                 </article>
               </div>
               <!-- Post 4 -->
-              <div class="col-md-6 blog-post" data-cat="nutrition" data-title="grain-free diet myths what pets really need">
+              <div class="col-md-6 blog-post" data-cat="nutrition" data-tags="nutrition diet health" data-title="grain-free diet myths what pets really need">
                 <article class="clay-card blog-card h-100">
                   <div class="blog-thumb"><img src="assets/images/blog-card-4.jpg" alt="Pet nutrition article"></div>
                   <div class="blog-body">
@@ -106,7 +106,7 @@
                 </article>
               </div>
               <!-- Post 5 -->
-              <div class="col-md-6 blog-post" data-cat="news" data-title="pawville mobile grooming van is here">
+              <div class="col-md-6 blog-post" data-cat="news" data-tags="mobile news" data-title="pawville mobile grooming van is here">
                 <article class="clay-card blog-card h-100">
                   <div class="blog-thumb"><img src="assets/images/blog-sidebar-1.jpg" alt="Mobile grooming van announcement"></div>
                   <div class="blog-body">
@@ -118,7 +118,7 @@
                 </article>
               </div>
               <!-- Post 6 -->
-              <div class="col-md-6 blog-post" data-cat="grooming" data-title="first groom puppies kittens guide">
+              <div class="col-md-6 blog-post" data-cat="grooming" data-tags="puppy tips" data-title="first groom puppies kittens guide">
                 <article class="clay-card blog-card h-100">
                   <div class="blog-thumb"><img src="assets/images/blog-sidebar-2.jpg" alt="Puppy first groom article"></div>
                   <div class="blog-body">
@@ -153,11 +153,11 @@
           <aside class="col-lg-4">
             <div class="clay sidebar-widget mb-4 reveal">
               <h2 class="widget-title">Categories</h2>
-              <ul class="cat-list">
-                <li><a href="#">Grooming Tips</a><span class="badge-clay bg-coral">18</span></li>
-                <li><a href="#">Care &amp; Health</a><span class="badge-clay bg-teal">12</span></li>
-                <li><a href="#">Nutrition</a><span class="badge-clay bg-amber">9</span></li>
-                <li><a href="#">Salon News</a><span class="badge-clay bg-violet">7</span></li>
+              <ul class="cat-list" id="sidebar-cats">
+                <li><a href="#" data-scat="grooming">Grooming Tips</a><span class="badge-clay bg-coral">18</span></li>
+                <li><a href="#" data-scat="care">Care &amp; Health</a><span class="badge-clay bg-teal">12</span></li>
+                <li><a href="#" data-scat="nutrition">Nutrition</a><span class="badge-clay bg-amber">9</span></li>
+                <li><a href="#" data-scat="news">Salon News</a><span class="badge-clay bg-violet">7</span></li>
               </ul>
             </div>
 
@@ -182,7 +182,7 @@
             <div class="clay sidebar-widget reveal">
               <h2 class="widget-title">Tags</h2>
               <div class="tag-cloud">
-                <a href="#">grooming</a><a href="#">diy</a><a href="#">puppy</a><a href="#">cat care</a><a href="#">deshedding</a><a href="#">nutrition</a><a href="#">mobile</a><a href="#">tips</a><a href="#">seasonal</a>
+                <a href="#" data-tag="grooming">grooming</a><a href="#" data-tag="diy">diy</a><a href="#" data-tag="puppy">puppy</a><a href="#" data-tag="cat care">cat care</a><a href="#" data-tag="deshedding">deshedding</a><a href="#" data-tag="nutrition">nutrition</a><a href="#" data-tag="mobile">mobile</a><a href="#" data-tag="tips">tips</a><a href="#" data-tag="seasonal">seasonal</a>
               </div>
             </div>
           </aside>
@@ -194,8 +194,8 @@
     <section class="section pt-0">
       <div class="pv-container">
         <div class="cta-banner p-5 text-center reveal">
-          <span class="cta-paw cta-paw-1">🐾</span>
-          <span class="cta-paw cta-paw-2">🐾</span>
+          <span class="cta-paw cta-paw-1">🐾️</span>
+          <span class="cta-paw cta-paw-2">🐾️</span>
           <h2 class="mb-3" style="font-size:clamp(1.8rem,3.4vw,2.6rem)">Put these tips into practice</h2>
           <p class="mb-4 mx-auto" style="max-width:520px;opacity:.9">Book a grooming session and our certified team will care for your pet's coat from tip to tail.</p>
           <div class="d-flex flex-wrap gap-3 justify-content-center">
@@ -223,8 +223,11 @@
       var grid = document.getElementById("blog-grid");
       var empty = document.getElementById("blog-empty");
       var pager = document.getElementById("blog-pager");
+      var tagCloud = document.querySelector(".tag-cloud");
+      var sidebarCats = document.getElementById("sidebar-cats");
       var posts = Array.prototype.slice.call(grid.querySelectorAll(".blog-post"));
       var currentCat = "all";
+      var currentTag = "all";
       var PER_PAGE = 2;
       var page = 1;
 
@@ -232,8 +235,11 @@
         var q = (search.value || "").toLowerCase();
         return posts.filter(function (post) {
           var cat = post.getAttribute("data-cat");
-          var hay = (post.getAttribute("data-title") || "").toLowerCase() + " " + cat + " " + (post.textContent || "").toLowerCase();
-          return (currentCat === "all" || cat === currentCat) && (!q || hay.indexOf(q) !== -1);
+          var tags = (post.getAttribute("data-tags") || "").toLowerCase();
+          var hay = (post.getAttribute("data-title") || "").toLowerCase() + " " + cat + " " + tags + " " + (post.textContent || "").toLowerCase();
+          var catOk = (currentCat === "all" || cat === currentCat);
+          var tagOk = (currentTag === "all" || tags.indexOf(currentTag) !== -1);
+          return catOk && tagOk && (!q || hay.indexOf(q) !== -1);
         });
       }
 
@@ -265,6 +271,7 @@
         var btn = e.target.closest("[data-cat]");
         if (!btn) return;
         currentCat = btn.getAttribute("data-cat");
+        currentTag = "all";
         filters.querySelectorAll("[data-cat]").forEach(function (b) {
           b.classList.toggle("btn-clay", b === btn);
           b.classList.toggle("btn-clay-outline", b !== btn);
@@ -272,6 +279,42 @@
         page = 1;
         apply();
       });
+      if (tagCloud) {
+        tagCloud.addEventListener("click", function (e) {
+          var a = e.target.closest("[data-tag]");
+          if (!a) return;
+          e.preventDefault();
+          currentTag = a.getAttribute("data-tag");
+          currentCat = "all";
+          filters.querySelectorAll("[data-cat]").forEach(function (b) {
+            var isAll = b.getAttribute("data-cat") === "all";
+            b.classList.toggle("btn-clay", isAll);
+            b.classList.toggle("btn-clay-outline", !isAll);
+          });
+          page = 1;
+          apply();
+          var top = grid.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: top, behavior: "smooth" });
+        });
+      }
+      if (sidebarCats) {
+        sidebarCats.addEventListener("click", function (e) {
+          var a = e.target.closest("[data-scat]");
+          if (!a) return;
+          e.preventDefault();
+          currentCat = a.getAttribute("data-scat");
+          currentTag = "all";
+          filters.querySelectorAll("[data-cat]").forEach(function (b) {
+            var isAll = b.getAttribute("data-cat") === currentCat;
+            b.classList.toggle("btn-clay", isAll);
+            b.classList.toggle("btn-clay-outline", !isAll);
+          });
+          page = 1;
+          apply();
+          var top = grid.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: top, behavior: "smooth" });
+        });
+      }
       pager.addEventListener("click", function (e) {
         var a = e.target.closest("[data-page]");
         if (!a) return;
@@ -280,7 +323,7 @@
         var list = visible();
         var total = Math.max(1, Math.ceil(list.length / PER_PAGE));
         if (p < 1) return;
-        if (p > total) { window.location.href = "coming-soon.html"; return; }
+        if (p > total) { page = total; apply(); return; }
         page = p;
         apply();
       });

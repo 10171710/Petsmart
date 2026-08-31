@@ -34,7 +34,7 @@
         '<tr><td class="text-secondary">VAT (10%)</td><td class="text-end text-secondary">$' + (a.price * 0.1).toFixed(2) + '</td></tr>' +
         '<tr><td class="fw-bold" style="font-size:1.05rem">Total</td><td class="text-end fw-bold" style="font-size:1.1rem">$' + (a.price * 1.1).toFixed(2) + '</td></tr>' +
       '</tbody></table>' +
-      '<p class="text-secondary mb-0 mt-3" style="font-size:.85rem">Thank you for choosing PawVille! 🐾 Please retain this invoice for your records.</p>'
+      '<p class="text-secondary mb-0 mt-3" style="font-size:.85rem">Thank you for choosing PawVille! 🐾️ Please retain this invoice for your records.</p>'
     );
   }
 

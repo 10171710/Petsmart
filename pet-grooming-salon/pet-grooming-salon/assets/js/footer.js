@@ -16,7 +16,7 @@
     <div class="pv-container">
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
-          <a class="footer-brand d-inline-flex align-items-center gap-2 mb-3" href="index.html">
+          <a class="footer-brand d-inline-flex align-items-center gap-1 mb-3" href="index.html">
             <img src="${LOGO}" alt="PawVille logo" style="width:44px;height:44px">
             <span>PawVille</span>
           </a>
@@ -27,7 +27,7 @@
             <a href="https://x.com/i/flow/login" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2 3h6.3l4.3 5.7zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a>
             <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.6 3.6 12 3.6 12 3.6h0s-4.6 0-7.7.3c-.5.1-1.5.1-2.4 1C1.2 5.6 1 7.2 1 7.2S.8 9.1.8 11v1.8C.8 14.6 1 16.5 1 16.5s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.3 7.6.3s4.6 0 7.7-.4c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.6V11c0-1.9-.2-3.8-.2-3.8zM9.8 15V8.4l6 3.3z"/></svg></a>
           </div>
-          <p class="mb-0 text-secondary">🐾 Certified &amp; insured · Loving pet care since 2012</p>
+          <p class="mb-0 text-secondary">🐾️ Certified &amp; insured · Loving pet care since 2012</p>
         </div>
 
         <div class="col-lg-2 col-md-6 col-6">
@@ -105,7 +105,7 @@
           e.preventDefault();
           var p = POLICIES[a.getAttribute("data-policy")];
           if (p && window.PawPopup) {
-            PawPopup({ icon: "🐾", title: p.title, content: p.body, wide: true });
+            PawPopup({ icon: "🐾️", title: p.title, content: p.body, wide: true });
           }
         });
       });

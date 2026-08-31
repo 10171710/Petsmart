@@ -173,7 +173,7 @@
   function appointmentRow(a) {
     return (
       '<tr data-id="' + a.id + '">' +
-        '<td><div class="d-flex align-items-center gap-2"><span style="font-size:1.3rem">' + (PET_EMOJI[a.pet] || "🐾") + '</span><div><div class="fw-bold">' + escapeHtml(a.petName) + '</div><div class="text-secondary" style="font-size:.8rem">' + escapeHtml(a.breed) + '</div></div></div></td>' +
+        '<td><div class="d-flex align-items-center gap-2"><span style="font-size:1.3rem">' + (PET_EMOJI[a.pet] || "🐾️") + '</span><div><div class="fw-bold">' + escapeHtml(a.petName) + '</div><div class="text-secondary" style="font-size:.8rem">' + escapeHtml(a.breed) + '</div></div></div></td>' +
         '<td><div class="fw-bold">' + escapeHtml(a.client) + '</div><div class="text-secondary" style="font-size:.8rem">' + escapeHtml(a.email) + '</div></td>' +
         '<td><div class="fw-bold">' + a.packageLabel + '</div><div class="text-secondary" style="font-size:.8rem">$' + a.price + '</div></td>' +
         '<td>' + a.date + '<div class="text-secondary" style="font-size:.8rem">' + a.time + '</div></td>' +
@@ -241,7 +241,7 @@
       var upcoming = list.filter(function (a) { return a.status !== "completed" && a.status !== "cancelled"; });
       upcomingBody.innerHTML = upcoming.length
         ? upcoming.map(appointmentRow).join("")
-        : '<tr><td colspan="7" class="text-center text-secondary py-5">No upcoming appointments — book one with the form above. 🐾</td></tr>';
+        : '<tr><td colspan="7" class="text-center text-secondary py-5">No upcoming appointments — book one with the form above. 🐾️</td></tr>';
     }
     var historyBody = document.getElementById("history-body");
     if (historyBody) {
@@ -250,7 +250,7 @@
         ? done.map(function (a) {
             return (
               '<tr>' +
-                '<td><span style="font-size:1.2rem">' + (PET_EMOJI[a.pet] || "🐾") + '</span> <span class="fw-bold">' + escapeHtml(a.petName) + '</span></td>' +
+                '<td><span style="font-size:1.2rem">' + (PET_EMOJI[a.pet] || "🐾️") + '</span> <span class="fw-bold">' + escapeHtml(a.petName) + '</span></td>' +
                 '<td>' + a.packageLabel + '</td>' +
                 '<td>$' + a.price + '</td>' +
                 '<td>' + a.date + '</td>' +
@@ -318,7 +318,7 @@
           '<tr><td class="text-secondary">VAT (10%)</td><td class="text-end text-secondary">$' + (a.price * 0.1).toFixed(2) + '</td></tr>' +
           '<tr><td class="fw-bold" style="font-size:1.05rem">Total</td><td class="text-end fw-bold" style="font-size:1.1rem">$' + (a.price * 1.1).toFixed(2) + '</td></tr>' +
         '</tbody></table>' +
-        '<p class="text-secondary mb-0 mt-3" style="font-size:.85rem">Thank you for choosing PawVille! 🐾 Please retain this invoice for your records.</p>';
+        '<p class="text-secondary mb-0 mt-3" style="font-size:.85rem">Thank you for choosing PawVille! 🐾️ Please retain this invoice for your records.</p>';
     }
     var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
     modal.show();
@@ -512,7 +512,7 @@
         row.innerHTML =
           '<td><div class="d-flex align-items-center gap-3"><div class="clay-avatar sm" style="display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--pv-primary);font-size:1rem">' + escapeHtml((name || "P").trim().charAt(0).toUpperCase() || "P") + '</div>' +
           '<div><div class="fw-bold">' + escapeHtml(name) + '</div><div class="text-secondary" style="font-size:.8rem">' + escapeHtml(email) + '</div></div></div></td>' +
-          '<td><span style="font-size:1.1rem">🐾</span> —</td>' +
+          '<td><span style="font-size:1.1rem">🐾️</span> —</td>' +
           '<td>Never</td>' +
           '<td class="fw-bold">$0</td>' +
           '<td><span class="badge-clay">—</span></td>' +
