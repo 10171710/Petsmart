@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — PawVille Pet Grooming &amp; Care Salon</title>
+  <meta name="description" content="Pet grooming tips, coat care guides, nutrition advice and salon stories from the PawVille team.">
+  <meta name="author" content="PawVille">
+  <meta property="og:title" content="Blog — PawVille Pet Grooming &amp; Care">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/blog-card-1.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="assets/css/style.css?v=20260910k" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main>
+<!-- ======= Page hero ======= -->
+    <section class="page-hero">
+      <span class="blob blob-1"></span>
+      <div class="pv-container text-center">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+          </ol>
+        </nav>
+        <span class="eyebrow"><i class="fa-solid fa-paw me-1"></i> Grooming guides</span>
+        <h1 class="section-title mb-3">The PawVille blog</h1>
+        <p class="section-sub mb-4 mx-auto" style="max-width:640px">Grooming guides, coat care, nutrition and news from the salon.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mb-0">
+          <a href="#blog-grid" class="btn-clay btn-sm">Search articles</a>
+          <a href="blog-details.html?post=summer-coat" class="btn-clay-outline btn-sm">Read article</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Mini CTA banner ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="clay p-4 d-flex flex-wrap align-items-center justify-content-center gap-3 text-center reveal">
+          <div>
+            <h2 class="h5 mb-1" style="color:var(--pv-text)">Loved the guides? Put them into practice.</h2>
+            <p class="text-secondary mb-0">Book a grooming session for a glossy coat and a happy tail.</p>
+          </div>
+          <a href="pricing.html" class="btn-clay btn-amber ms-lg-4">Book a Groom</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Blog listing ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="row g-4">
+          <!-- Posts -->
+          <div class="col-lg-8">
+            <div class="d-flex flex-wrap gap-2 mb-4" id="category-filters">
+              <button class="btn-clay btn-sm active" data-cat="all">All</button>
+              <button class="btn-clay-outline" data-cat="grooming">Grooming</button>
+              <button class="btn-clay-outline" data-cat="care">Care &amp; Health</button>
+              <button class="btn-clay-outline" data-cat="nutrition">Nutrition</button>
+              <button class="btn-clay-outline" data-cat="news">News</button>
+            </div>
+
+            <div class="row g-4" id="blog-grid">
+              <!-- Post 1 -->
+              <div class="col-md-6 blog-post" data-cat="grooming" data-title="Tangle-free summer coat brushing tips">
+                <article class="clay-card blog-card h-100">
+                  <div class="blog-thumb"><img src="assets/images/blog-card-1.jpg" alt="Dog grooming tips article"></div>
+                  <div class="blog-body">
+                    <div class="blog-meta mb-2"><span>By Maya</span><span class="sep">•</span><span>Jun 12, 2026</span></div>
+                    <h2 class="h5 mb-2"><a href="blog-details.html?post=summer-coat" style="color:var(--pv-text)">10 Grooming Tips for a Tangle-Free Summer Coat</a></h2>
+                    <p class="text-secondary mb-3">Keep your dog cool and comfortable all season with these simple brushing and bathing habits.</p>
+                    <a class="feature-link mt-auto" href="blog-details.html?post=summer-coat">Read article <span>»</span></a>
+                  </div>
+                </article>
+              </div>
+              <!-- Post 2 -->
+              <div class="col-md-6 blog-post" data-cat="care" data-title="why cats love a good brush how to do it right">
+                <article class="clay-card blog-card h-100">
+                  <div class="blog-thumb"><img src="assets/images/blog-card-2.jpg" alt="Cat brushing article"></div>
+                  <div class="blog-body">
+                    <div class="blog-meta mb-2"><span>By Omar</span><span class="sep">•</span><span>Jun 05, 2026</span></div>
+                    <h2 class="h5 mb-2"><a href="blog-details.html?post=cat-brushing" style="color:var(--pv-text)">Why Cats Actually Love a Good Brush (And How to Do It Right)</a></h2>
+                    <p class="text-secondary mb-3">Bonding, fewer hairballs and a shinier coat — here's how to make brushing your cat's favorite ritual.</p>
+                    <a class="feature-link mt-auto" href="blog-details.html?post=cat-brushing">Read article <span>»</span></a>
+                  </div>
+                </article>
+              </div>
+              <!-- Post 3 -->
+              <div class="col-md-6 blog-post" data-cat="care" data-title="nail care 101 when to trim what to watch for">
+                <article class="clay-card blog-card h-100">
+                  <div class="blog-thumb"><img src="assets/images/blog-card-3.jpg" alt="Nail trimming guide article"></div>
+                  <div class="blog-body">
+                    <div class="blog-meta mb-2"><span>By Sofia</span><span class="sep">•</span><span>May 28, 2026</span></div>
+                    <h2 class="h5 mb-2"><a href="blog-details.html?post=nail-care" style="color:var(--pv-text)">Nail Care 101: When to Trim and What to Watch For</a></h2>
+                    <p class="text-secondary mb-3">Healthy nails protect paws and posture. Learn the signs it's time for a trim and the safest approach.</p>
+                    <a class="feature-link mt-auto" href="blog-details.html?post=nail-care">Read article <span>»</span></a>
+                  </div>
+                </article>
+              </div>
+              <!-- Post 4 -->
+              <div class="col-md-6 blog-post" data-cat="nutrition" data-title="grain-free diet myths what pets really need">
+                <article class="clay-card blog-card h-100">
+                  <div class="blog-thumb"><img src="assets/images/blog-card-4.jpg" alt="Pet nutrition article"></div>
+                  <div class="blog-body">
+                    <div class="blog-meta mb-2"><span>By Noah</span><span class="sep">•</span><span>May 20, 2026</span></div>
+                    <h2 class="h5 mb-2"><a href="blog-details.html?post=grain-free" style="color:var(--pv-text)">Grain-Free Diets: Myths Every Pet Parent Should Know</a></h2>
+                    <p class="text-secondary mb-3">Before you switch your pet's food, read what the evidence really says about grains, protein and coat health.</p>
+                    <a class="feature-link mt-auto" href="blog-details.html?post=grain-free">Read article <span>»</span></a>
+                  </div>
+                </article>
+              </div>
+              <!-- Post 5 -->
+              <div class="col-md-6 blog-post" data-cat="news" data-title="pawville mobile grooming van is here">
+                <article class="clay-card blog-card h-100">
+                  <div class="blog-thumb"><img src="assets/images/blog-sidebar-1.jpg" alt="Mobile grooming van announcement"></div>
+                  <div class="blog-body">
+                    <div class="blog-meta mb-2"><span>By Mia</span><span class="sep">•</span><span>May 12, 2026</span></div>
+                    <h2 class="h5 mb-2"><a href="blog-details.html?post=mobile-van" style="color:var(--pv-text)">Big News: The PawVille Mobile Grooming Van Is Here!</a></h2>
+                    <p class="text-secondary mb-3">We've launched our fully-equipped mobile unit — the full salon experience at your driveway.</p>
+                    <a class="feature-link mt-auto" href="blog-details.html?post=mobile-van">Read article <span>»</span></a>
+                  </div>
+                </article>
+              </div>
+              <!-- Post 6 -->
+              <div class="col-md-6 blog-post" data-cat="grooming" data-title="first groom puppies kittens guide">
+                <article class="clay-card blog-card h-100">
+                  <div class="blog-thumb"><img src="assets/images/blog-sidebar-2.jpg" alt="Puppy first groom article"></div>
+                  <div class="blog-body">
+                    <div class="blog-meta mb-2"><span>By Amira</span><span class="sep">•</span><span>May 04, 2026</span></div>
+                    <h2 class="h5 mb-2"><a href="blog-details.html?post=first-groom" style="color:var(--pv-text)">A Parent's Guide to Your Puppy's Very First Groom</a></h2>
+                    <p class="text-secondary mb-3">What to expect, how to prepare and why the first groom sets the tone for a lifetime of easy care.</p>
+                    <a class="feature-link mt-auto" href="blog-details.html?post=first-groom">Read article <span>»</span></a>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Empty state -->
+            <div id="blog-empty" class="text-center py-5 d-none">
+              <div style="font-size:3rem"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <h3 class="h5 mt-3 mb-1">No articles found</h3>
+              <p class="text-secondary mb-0">Try a different keyword or category.</p>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="col-lg-4">
+            <div class="clay sidebar-widget mb-4 reveal">
+              <h2 class="widget-title">Categories</h2>
+              <ul class="cat-list">
+                <li><a href="#">Grooming Tips</a><span class="badge-clay bg-coral">18</span></li>
+                <li><a href="#">Care &amp; Health</a><span class="badge-clay bg-teal">12</span></li>
+                <li><a href="#">Nutrition</a><span class="badge-clay bg-coral">9</span></li>
+                <li><a href="#">Salon News</a><span class="badge-clay bg-teal">7</span></li>
+              </ul>
+            </div>
+
+            <div class="clay sidebar-widget mb-4 reveal">
+              <h2 class="widget-title">Popular posts</h2>
+              <div class="d-flex flex-column gap-3">
+<a href="blog-details.html?post=summer-coat" class="d-flex gap-3 align-items-center">
+                  <div class="blog-thumb rounded-4 overflow-hidden flex-shrink-0" style="width:74px;height:58px"><img src="assets/images/blog-card-1.jpg" alt=""></div>
+                  <div><div class="fw-bold" style="font-size:.9rem;line-height:1.3;color:var(--pv-text)">10 Grooming Tips for a Tangle-Free Summer Coat</div><div class="text-secondary" style="font-size:.78rem">Jun 12, 2026</div></div>
+                </a>
+<a href="blog-details.html?post=nail-care" class="d-flex gap-3 align-items-center">
+                  <div class="blog-thumb rounded-4 overflow-hidden flex-shrink-0" style="width:74px;height:58px"><img src="assets/images/blog-card-3.jpg" alt=""></div>
+                  <div><div class="fw-bold" style="font-size:.9rem;line-height:1.3;color:var(--pv-text)">Nail Care 101: When to Trim and What to Watch For</div><div class="text-secondary" style="font-size:.78rem">May 28, 2026</div></div>
+                </a>
+                <a href="blog-details.html?post=grain-free" class="d-flex gap-3 align-items-center">
+                  <div class="blog-thumb rounded-4 overflow-hidden flex-shrink-0" style="width:74px;height:58px"><img src="assets/images/blog-card-4.jpg" alt=""></div>
+                  <div><div class="fw-bold" style="font-size:.9rem;line-height:1.3;color:var(--pv-text)">Grain-Free Diets: Myths Every Pet Parent Should Know</div><div class="text-secondary" style="font-size:.78rem">May 20, 2026</div></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="clay sidebar-widget reveal">
+              <h2 class="widget-title">Tags</h2>
+              <div class="tag-cloud">
+                <a href="#">grooming</a><a href="#">diy</a><a href="#">puppy</a><a href="#">cat care</a><a href="#">deshedding</a><a href="#">nutrition</a><a href="#">mobile</a><a href="#">tips</a><a href="#">seasonal</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= CTA ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="cta-banner p-5 text-center reveal">
+          <span class="cta-paw cta-paw-1"><i class="fa-solid fa-paw"></i></span>
+          <span class="cta-paw cta-paw-2"><i class="fa-solid fa-paw"></i></span>
+          <h2 class="mb-3" style="font-size:clamp(1.8rem,3.4vw,2.6rem)">Put these tips into practice</h2>
+          <p class="mb-4 mx-auto" style="max-width:520px;opacity:.9">Book a grooming session and our certified team will care for your pet's coat from tip to tail.</p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <a href="pricing.html" class="btn-clay btn-amber btn-lg">Book Now</a>
+            <a href="blog-details.html" class="btn-clay btn-ghost btn-lg">Read a Post</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js?v=20260910k"></script>
+  <script src="assets/js/navbar.js?v=20260910k"></script>
+  <script src="assets/js/footer.js?v=20260910k"></script>
+  <script>
+    /* Blog search + category filter (all posts shown, no pagination) */
+    (function () {
+      var search = document.getElementById("blog-search");
+      var filters = document.getElementById("category-filters");
+      var grid = document.getElementById("blog-grid");
+      var empty = document.getElementById("blog-empty");
+      var posts = Array.prototype.slice.call(grid.querySelectorAll(".blog-post"));
+      var currentCat = "all";
+
+      function apply() {
+        var q = (search.value || "").toLowerCase();
+        var shown = 0;
+        posts.forEach(function (post) {
+          var cat = post.getAttribute("data-cat");
+          var hay = (post.getAttribute("data-title") || "").toLowerCase() + " " + cat + " " + (post.textContent || "").toLowerCase();
+          var match = (currentCat === "all" || cat === currentCat) && (!q || hay.indexOf(q) !== -1);
+          post.classList.toggle("d-none", !match);
+          if (match) shown++;
+        });
+        empty.classList.toggle("d-none", shown !== 0);
+      }
+
+      search.addEventListener("input", apply);
+      filters.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-cat]");
+        if (!btn) return;
+        currentCat = btn.getAttribute("data-cat");
+        filters.querySelectorAll("[data-cat]").forEach(function (b) {
+          b.classList.toggle("btn-clay", b === btn);
+          b.classList.toggle("btn-clay-outline", b !== btn);
+        });
+        apply();
+      });
+      apply();
+    })();
+  </script>
+</body>
+</html>

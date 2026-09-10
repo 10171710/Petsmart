@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — PawVille Pet Grooming &amp; Care Salon</title>
+  <meta name="description" content="Get in touch with PawVille — visit the salon, call us, send a message or book a tour.">
+  <meta name="author" content="PawVille">
+  <meta property="og:title" content="Contact Us — PawVille Pet Grooming &amp; Care">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/contact.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="assets/css/style.css?v=20260910k" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main>
+    <!-- ======= Page hero ======= -->
+    <section class="page-hero">
+      <span class="blob blob-2"></span>
+      <div class="pv-container text-center">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <span class="eyebrow">Say hello</span>
+        <h1 class="section-title mb-3">We'd love to hear from you</h1>
+        <p class="section-sub mb-0 mx-auto" style="max-width:600px">Questions, bookings, tours or feedback — reach out and our team will get back to you within one business day.</p>
+      </div>
+    </section>
+
+    <!-- ======= Info cards ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="clay-card p-4 h-100 text-center reveal">
+              <div class="card-icon mx-auto mb-3"><i class="fa-solid fa-location-dot"></i></div>
+              <h2 class="h6 mb-2">Visit the salon</h2>
+              <p class="text-secondary mb-0">24 Wagtail Lane,<br>Pet District, PG 4500</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="clay-card p-4 h-100 text-center reveal" style="transition-delay:.08s">
+              <a href="tel:+15550123456" class="d-block text-decoration-none" style="color:inherit">
+                <div class="card-icon teal mx-auto mb-3"><i class="fa-solid fa-phone"></i></div>
+                <h2 class="h6 mb-2">Call us</h2>
+                <p class="text-secondary mb-0">+1 (555) 012-3456<br>Mon–Sat, 8AM–7PM</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="clay-card p-4 h-100 text-center reveal" style="transition-delay:.16s">
+              <a href="mailto:hello@pawville.com" class="d-block text-decoration-none" style="color:inherit">
+                <div class="card-icon amber mx-auto mb-3"><i class="fa-solid fa-envelope"></i></div>
+                <h2 class="h6 mb-2">Email us</h2>
+                <p class="text-secondary mb-0">hello@pawville.com<br>care@pawville.com</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="clay-card p-4 h-100 text-center reveal" style="transition-delay:.24s">
+              <div class="card-icon violet mx-auto mb-3"><i class="fa-solid fa-clock"></i></div>
+              <h2 class="h6 mb-2">Opening hours</h2>
+              <p class="text-secondary mb-0">Mon–Sat 8AM–7PM<br>Sun 9AM–4PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Form + info ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="clay p-4 p-md-5 h-100 reveal">
+              <h2 class="h4 mb-1">Send us a message</h2>
+              <p class="text-secondary mb-4">We reply within one business day — usually faster.</p>
+              <form id="contact-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="cf-name">Your name</label>
+                    <input type="text" id="cf-name" class="form-control form-clay" placeholder="Jane Doe" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="cf-email">Email address</label>
+                    <input type="email" id="cf-email" class="form-control form-clay" placeholder="jane@email.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="cf-subject">Subject</label>
+                    <select id="cf-subject" class="form-select form-clay">
+                      <option>General question</option>
+                      <option>Book an appointment</option>
+                      <option>Day care / boarding</option>
+                      <option>Mobile grooming</option>
+                      <option>Careers</option>
+                      <option>Feedback</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="cf-pet">Pet type</label>
+                    <select id="cf-pet" class="form-select form-clay">
+                      <option>Dog</option>
+                      <option>Cat</option>
+                      <option>Rabbit / small pet</option>
+                      <option>Other</option>
+                      <option>No pet yet</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="cf-msg">Message</label>
+                    <textarea id="cf-msg" class="form-control form-clay" rows="5" placeholder="Tell us a little about your pet…" required></textarea>
+                  </div>
+                  <div class="col-12 d-flex flex-wrap gap-3 align-items-center">
+                    <button class="btn-clay btn-lg" type="submit">Send Message</button>
+                    <span class="text-secondary" style="font-size:.85rem">or email <a href="mailto:hello@pawville.com" class="link-primary">hello@pawville.com</a> directly</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="d-flex flex-column gap-4 h-100">
+              <div class="clay p-4 reveal">
+                <h2 class="h6 mb-2">How to find us</h2>
+                <p class="text-secondary mb-3" style="font-size:.95rem">We're opposite the Wagtail Park entrance, with free parking and a doggy water station out front.</p>
+                <div class="d-flex flex-column gap-2">
+                  <span class="clay-chip"><span class="dot"></span> Free parking</span>
+                  <span class="clay-chip chip-teal"><span class="dot"></span> Wheelchair accessible</span>
+                  <span class="clay-chip chip-violet"><span class="dot"></span> 5 min walk from station</span>
+                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=51.5055,-0.1145" target="_blank" rel="noopener" class="btn-clay btn-teal btn-sm justify-content-center mt-3 w-100"><i class="fa-solid fa-compass"></i> Get directions</a>
+              </div>
+              <div class="clay p-4 reveal" style="transition-delay:.1s">
+                <h2 class="h6 mb-3">Emergency? Call the front desk</h2>
+                <p class="text-secondary mb-3" style="font-size:.95rem">For same-day grooming emergencies or questions about a pet currently in our care:</p>
+                <a href="tel:+15550123456" class="btn-clay btn-teal w-100 justify-content-center">+1 (555) 012-3456</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Map ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="text-center mb-4 reveal">
+          <span class="eyebrow">Find us on the map</span>
+          <h2 class="section-title mb-0">Where to find us</h2>
+        </div>
+        <div class="clay p-2 p-md-3 reveal" style="border-radius:var(--radius-sm);border-width:4px;overflow:hidden">
+          <iframe title="PawVille salon location map" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1185%2C51.5037%2C-0.1105%2C51.5073&amp;layer=mapnik&amp;marker=51.5055%2C-0.1145" loading="lazy" style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe>
+        </div>
+        <div class="text-center mt-4 reveal">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=51.5055,-0.1145" target="_blank" rel="noopener" class="btn-clay btn-teal justify-content-center"><i class="fa-solid fa-compass"></i> Get directions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= CTA ======= -->
+    <section class="section pt-0">
+      <div class="pv-container">
+        <div class="cta-banner p-5 text-center reveal">
+          <span class="cta-paw cta-paw-1"><i class="fa-solid fa-paw"></i></span>
+          <span class="cta-paw cta-paw-2"><i class="fa-solid fa-paw"></i></span>
+          <h2 class="mb-3" style="font-size:clamp(1.8rem,3.4vw,2.6rem)">Prefer to book straight away?</h2>
+          <p class="mb-4 mx-auto" style="max-width:520px;opacity:.9">Skip the wait — create a free account and schedule your pet's grooming in under a minute.</p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <a href="register.html" class="btn-clay btn-amber btn-lg">Create Free Account</a>
+            <a href="pricing.html" class="btn-clay btn-ghost btn-lg">See Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js?v=20260910k"></script>
+  <script src="assets/js/navbar.js?v=20260910k"></script>
+  <script src="assets/js/footer.js?v=20260910k"></script>
+</body>
+</html>

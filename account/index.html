@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard â€” PawVille</title>
+  <meta name="description" content="Your PawVille dashboard â€” manage bookings, pets, invoices and loyalty rewards.">
+  <meta name="author" content="PawVille">
+  <meta property="og:title" content="My Dashboard â€” PawVille">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="../assets/css/style.css?v=20260910k" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout">
+    <aside id="admin-sidebar"></aside>
+
+    <div class="admin-main">
+      <header id="admin-topbar"></header>
+
+      <div class="admin-content">
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div>
+            <h1 class="h3 mb-1" id="welcome-line">Welcome back! </h1>
+            <p class="text-secondary mb-0">Here's what's happening with your bookings.</p>
+          </div>
+          <a class="btn-clay" href="#booking-form">+ Book a Groom</a>
+        </div>
+
+        <!-- ======= Stat tiles ======= -->
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-xl-3">
+            <div class="clay stat-tile reveal">
+              <div class="st-icon" style="color:var(--pv-primary)"><i class="fa-solid fa-calendar-check"></i></div>
+              <div>
+                <div class="st-value" id="stat-upcoming">0</div>
+                <div class="st-label">Upcoming bookings</div>
+                <div class="st-trend" style="color:var(--pv-secondary)">Pending or confirmed</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="clay stat-tile reveal" style="transition-delay:.05s">
+              <div class="st-icon" style="color:var(--pv-secondary)"><i class="fa-solid fa-scissors"></i></div>
+              <div>
+                <div class="st-value" id="stat-completed">0</div>
+                <div class="st-label">Completed grooms</div>
+                <div class="st-trend" style="color:var(--pv-accent-deep)">Lifetime total</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="clay stat-tile reveal" style="transition-delay:.1s">
+              <div class="st-icon" style="color:var(--pv-violet)"><i class="fa-solid fa-paw"></i></div>
+              <div>
+                <div class="st-value" id="stat-pets">0</div>
+                <div class="st-label">Pets in your pack</div>
+                <div class="st-trend" style="color:var(--pv-secondary)"><a href="pets.html" class="text-decoration-none">Manage pets »</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="clay stat-tile reveal" style="transition-delay:.15s">
+              <div class="st-icon" style="color:var(--pv-accent-deep)"><i class="fa-solid fa-award"></i></div>
+              <div>
+                <div class="st-value" id="stat-points">0</div>
+                <div class="st-label">Loyalty points</div>
+                <div class="st-trend" style="color:var(--pv-primary)">10 pts per groom</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+          <div class="col-12 col-xl-9">
+
+            <!-- ======= Upcoming bookings ======= -->
+            <div class="clay p-4 reveal">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h5 mb-0">Upcoming bookings</h2>
+                <a href="bookings.html" class="feature-link">View all <span>»</span></a>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-clay align-middle">
+                  <thead>
+                    <tr><th>Pet</th><th>Package</th><th>Date / time</th><th>Groomer</th><th>Status</th><th class="text-end">Actions</th></tr>
+                  </thead>
+                  <tbody id="upcoming-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- ======= Loyalty + Quick book ======= -->
+            <div class="row g-4 mt-0">
+              <div class="col-md-5">
+                <div class="clay p-4 h-100 reveal">
+                  <h2 class="h5 mb-3">Your loyalty card</h2>
+                  <div class="text-center mb-3">
+                    <div class="donut mx-auto mb-3" style="--p:68;--size:130px;--thick:16px">
+                      <span class="fw-bold" style="font-family:var(--font-display);font-size:1.5rem" id="stat-points-donut">0</span>
+                    </div>
+                    <div class="text-secondary" style="font-size:.85rem">Collect 10 points per groom â€” <strong>50 pts = a free bath</strong></div>
+                  </div>
+                  <div class="clay-inset p-3" style="border-radius:var(--radius-sm)">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="fw-bold" style="font-size:.88rem">Next reward</span>
+                      <span class="badge-clay bg-teal" style="font-size:.78rem">50 pts</span>
+                    </div>
+                    <div class="progress mt-2" style="height:10px;border-radius:99px;background:var(--pv-bg-soft)">
+                      <div class="progress-bar" role="progressbar" id="loyalty-bar" style="width:0%;background:var(--pv-secondary);border-radius:99px"></div>
+                    </div>
+                    <div class="text-secondary mt-1" style="font-size:.78rem" id="loyalty-progress-text">0 / 50 pts to free bath</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <div class="clay p-4 h-100 reveal">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h5 mb-0">Quick book a groom</h2>
+                    <a href="../pricing.html" class="feature-link">See pricing <span>»</span></a>
+                  </div>
+                  <form id="booking-form" class="booking-form p-0">
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <label class="form-label" for="bk-pet">Saved pet</label>
+                        <select id="bk-pet" class="form-select form-clay">
+                          <option value="">Add a new pet belowâ€¦</option>
+                        </select>
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="bk-type">Pet type</label>
+                        <select id="bk-type" name="petType" class="form-select form-clay">
+                          <option value="dog">Dog</option>
+                          <option value="cat">Cat</option>
+                          <option value="rabbit">Rabbit</option>
+                          <option value="bird">Bird</option>
+                        </select>
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="bk-name">Pet name</label>
+                        <input type="text" id="bk-name" name="petName" class="form-control form-clay" placeholder="e.g. Bella" required>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="bk-breed">Breed</label>
+                        <input type="text" id="bk-breed" name="breed" class="form-control form-clay" placeholder="e.g. Golden Retriever" required>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="bk-pkg">Grooming package</label>
+                        <select id="bk-pkg" name="package" class="form-select form-clay">
+                          <option value="essential">Essential Groom â€” $35</option>
+                          <option value="signature" selected>Signature Groom â€” $59</option>
+                          <option value="spa">Spa Package â€” $79</option>
+                          <option value="club">Unlimited Club â€” $79</option>
+                        </select>
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="bk-date">Date</label>
+                        <input type="date" id="bk-date" name="date" class="form-control form-clay" required>
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="bk-time">Time</label>
+                        <input type="time" id="bk-time" name="time" class="form-control form-clay" value="10:00" required>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="bk-groomer">Preferred groomer</label>
+                        <select id="bk-groomer" name="groomer" class="form-select form-clay">
+                          <option>Mia Torres</option>
+                          <option>Leo Chen</option>
+                          <option>Amira Patel</option>
+                          <option>Noah Grant</option>
+                          <option>Sara Kim</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="bk-notes">Notes</label>
+                        <textarea id="bk-notes" name="notes" class="form-control form-clay" rows="2" placeholder="Allergies, temperaments, special requestsâ€¦"></textarea>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn-clay w-100" type="submit">Request Booking</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- ======= How it works + Recent ======= -->
+            <div class="row g-4 mt-0">
+              <div class="col-md-6">
+                <div class="clay p-4 h-100 reveal">
+                  <h2 class="h5 mb-3">How booking works</h2>
+                  <div class="vstack gap-3">
+                    <div class="d-flex gap-3 align-items-start">
+                      <span class="badge rounded-circle" style="background:var(--pv-primary);color:#fff;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center">1</span>
+                      <div><div class="fw-bold" style="font-size:.92rem">Request a slot</div><div class="text-secondary" style="font-size:.85rem">Pick a package, date and groomer.</div></div>
+                    </div>
+                    <div class="d-flex gap-3 align-items-start">
+                      <span class="badge rounded-circle" style="background:var(--pv-secondary);color:#fff;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center">2</span>
+                      <div><div class="fw-bold" style="font-size:.92rem">We confirm</div><div class="text-secondary" style="font-size:.85rem">The salon confirms your booking.</div></div>
+                    </div>
+                    <div class="d-flex gap-3 align-items-start">
+                      <span class="badge rounded-circle" style="background:var(--pv-violet);color:#fff;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center">3</span>
+                      <div><div class="fw-bold" style="font-size:.92rem">We pamper your pet</div><div class="text-secondary" style="font-size:.85rem">Drop off, we handle the rest.</div></div>
+                    </div>
+                    <div class="d-flex gap-3 align-items-start">
+                      <span class="badge rounded-circle" style="background:var(--pv-accent-deep);color:#fff;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center">4</span>
+                      <div><div class="fw-bold" style="font-size:.92rem">Invoice + rewards</div><div class="text-secondary" style="font-size:.85rem">Pay via invoice and earn loyalty points.</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="clay p-4 h-100 reveal">
+                  <h2 class="h5 mb-3">Recently completed</h2>
+                  <div class="text-secondary text-center py-4" style="font-size:.9rem">
+                    Completed grooms appear here with their <a href="invoices.html" class="feature-link">invoices <span>»</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Invoice modal ======= -->
+  <div class="modal fade" id="invoiceModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="background:var(--pv-bg);border:none;border-radius:26px;box-shadow:var(--clay-raised-lg)">
+        <div class="modal-header border-0 align-items-center">
+          <h2 class="modal-title h5 mb-0">Invoice preview</h2>
+          <div class="d-flex gap-2">
+            <button class="btn-clay btn-sm" id="invoice-print" type="button"><i class="fa-solid fa-print"></i> Download / Print</button>
+            <button type="button" class="btn-clay-outline btn-sm" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="invoice-sheet p-4 p-md-5" id="invoice-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js?v=20260910k"></script>
+<script src="../assets/js/invoice.js?v=20260910k"></script>
+  <script src="account.js?v=20260910k"></script>
+</body>
+</html>
