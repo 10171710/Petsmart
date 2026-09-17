@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard — PawVille Admin</title>
-  <meta name="description" content="PawVille admin dashboard — book grooming appointments, manage schedules, history and invoices.">
+  <meta name="description" content="PawVille admin command centre — bookings, revenue, clients, pets and team at a glance.">
   <meta name="author" content="PawVille">
   <meta property="og:title" content="Dashboard — PawVille Admin">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link id="bs-core-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="../assets/css/style.css?v=20260910k" rel="stylesheet">
+  <link href="../assets/css/style.css?v=20260917" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/images/logo.png">
 </head>
 <body class="admin-body">
@@ -26,217 +26,282 @@
 
       <div class="admin-content">
 
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <!-- ======= Welcome hero ======= -->
+        <section class="welcome-hero">
           <div>
-            <h1 class="h3 mb-1">Good day, <span id="admin-greet-name">Mia</span>! </h1>
-            <p class="text-secondary mb-0">Here's what's happening at the salon today.</p>
+            <span class="eyebrow">ADMIN COMMAND CENTRE</span>
+            <h1 class="dash-hero-title">Good day, <span id="admin-greet-name">Mia</span>!</h1>
+            <p class="text-secondary mb-0" style="max-width:560px">Here's what's happening at the salon — bookings, revenue, clients and your team, all in one view.</p>
+            <div class="pv-date"><i class="fa-solid fa-calendar-days"></i><span id="admin-today"></span></div>
           </div>
-          <a class="btn-clay" href="#booking-form">+ New Appointment</a>
-        </div>
+          <div class="welcome-hero-actions">
+            <a class="btn-clay" href="#booking-form"><i class="fa-solid fa-plus"></i> New Appointment</a>
+            <button class="btn-clay-outline" type="button" id="btn-add-customer"><i class="fa-solid fa-user-plus"></i> Add Customer</button>
+            <a class="btn-clay-outline" href="../index.html"><i class="fa-solid fa-globe"></i> View Website</a>
+          </div>
+        </section>
 
-        <!-- ======= Stat tiles ======= -->
+        <!-- ======= Metric cards ======= -->
         <div class="row g-3 mb-4">
           <div class="col-6 col-xl-3">
-            <div class="clay stat-tile reveal">
-              <div class="st-icon" style="color:var(--pv-primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="clay metric-card reveal">
+              <div class="metric-ico brown"><i class="fa-solid fa-chart-line"></i></div>
               <div>
-                <div class="st-value">$4,280</div>
-                <div class="st-label">Revenue this month</div>
-                <div class="st-trend" style="color:var(--pv-secondary)">▲ 12.4% vs last month</div>
+                <div class="metric-value">$<span id="stat-revenue">0</span></div>
+                <div class="metric-label">Revenue (bookings)</div>
+                <div class="metric-trend" style="color:var(--pv-secondary)">Live from schedule</div>
               </div>
             </div>
           </div>
           <div class="col-6 col-xl-3">
-            <div class="clay stat-tile reveal" style="transition-delay:.05s">
-              <div class="st-icon" style="color:var(--pv-secondary)"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="clay metric-card reveal" style="transition-delay:.05s">
+              <div class="metric-ico teal"><i class="fa-solid fa-calendar-check"></i></div>
               <div>
-                <div class="st-value">128</div>
-                <div class="st-label">Appointments</div>
-                <div class="st-trend" style="color:var(--pv-accent-deep)">12 awaiting confirmation</div>
+                <div class="metric-value"><span id="stat-appointments">0</span></div>
+                <div class="metric-label">Total appointments</div>
+                <div class="metric-trend" style="color:var(--pv-primary-deep)"><span id="stat-pending">0</span> awaiting confirmation</div>
               </div>
             </div>
           </div>
           <div class="col-6 col-xl-3">
-            <div class="clay stat-tile reveal" style="transition-delay:.1s">
-              <div class="st-icon" style="color:var(--pv-violet)"><i class="fa-solid fa-users"></i></div>
+            <div class="clay metric-card reveal" style="transition-delay:.1s">
+              <div class="metric-ico violet"><i class="fa-solid fa-users"></i></div>
               <div>
-                <div class="st-value">96</div>
-                <div class="st-label">Active clients</div>
-                <div class="st-trend" style="color:var(--pv-secondary)">▲ 8 new this month</div>
+                <div class="metric-value"><span id="stat-clients">0</span></div>
+                <div class="metric-label">Active clients</div>
+                <div class="metric-trend" style="color:var(--pv-secondary)">Unique accounts</div>
               </div>
             </div>
           </div>
           <div class="col-6 col-xl-3">
-            <div class="clay stat-tile reveal" style="transition-delay:.15s">
-              <div class="st-icon" style="color:var(--pv-accent-deep)"><i class="fa-solid fa-star"></i></div>
+            <div class="clay metric-card reveal" style="transition-delay:.15s">
+              <div class="metric-ico amber"><i class="fa-solid fa-paw"></i></div>
               <div>
-                <div class="st-value">4.9</div>
-                <div class="st-label">Average rating</div>
-                <div class="st-trend" style="color:var(--pv-primary)">From 212 reviews</div>
+                <div class="metric-value"><span id="stat-pets-registered">0</span></div>
+                <div class="metric-label">Registered pets</div>
+                <div class="metric-trend" style="color:var(--pv-primary)">Across all clients</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row g-4 justify-content-center">
-
-          <div class="col-12 col-xl-9">
-
-            <!-- ======= Weekly chart ======= -->
-            <div class="clay p-4 reveal">
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <div><h2 class="h5 mb-1">Weekly appointments</h2><div class="text-secondary" style="font-size:.85rem">Grooms completed per weekday</div></div>
-                <span class="clay-chip"><span class="dot"></span> This week</span>
+        <!-- ======= Analytics row ======= -->
+        <div class="row g-4 mb-4">
+          <div class="col-xl-8">
+            <div class="clay panel reveal">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Booking analytics</h2>
+                  <div class="panel-sub">Appointments across the week</div>
+                </div>
+                <span class="clay-chip chip-teal"><span class="dot"></span> Live</span>
               </div>
-              <div class="chart-bar" style="height:200px">
-                <div class="bar" style="height:45%;--h:45%"><span class="d-none">Mon</span></div>
-                <div class="bar" style="height:60%"></div>
-                <div class="bar" style="height:52%"></div>
-                <div class="bar" style="height:78%"></div>
-                <div class="bar" style="height:70%"></div>
-                <div class="bar" style="height:92%"></div>
-                <div class="bar" style="height:38%"></div>
+              <div class="chart-bars tall" id="week-bars">
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Mon</span></div>
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Tue</span></div>
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Wed</span></div>
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Thu</span></div>
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Fri</span></div>
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Sat</span></div>
+                <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Sun</span></div>
               </div>
-              <div class="d-flex justify-content-between mt-2 text-secondary" style="font-size:.75rem;font-weight:700">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              <div class="dash-strip mt-4">
+                <div class="ds-item">
+                  <div class="ds-value" style="color:var(--pv-primary)" id="sched-today">0</div>
+                  <div class="ds-label">Booked today</div>
+                </div>
+                <div class="ds-item">
+                  <div class="ds-value" style="color:var(--pv-secondary)" id="sched-confirmed">0</div>
+                  <div class="ds-label">Confirmed</div>
+                </div>
+                <div class="ds-item">
+                  <div class="ds-value" style="color:var(--pv-primary-deep)" id="sched-completed">0</div>
+                  <div class="ds-label">Completed this week</div>
+                </div>
+                <div class="ds-item">
+                  <div class="ds-value" id="sched-cancelled">0</div>
+                  <div class="ds-label">Cancelled</div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <!-- ======= Upcoming appointments ======= -->
-            <div class="clay p-4 mt-4 reveal">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h2 class="h5 mb-0">Upcoming appointments</h2>
-                <a href="appointments.html" class="feature-link">View all <span>»</span></a>
+          <div class="col-xl-4">
+            <div class="clay panel reveal" style="transition-delay:.05s">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Status overview</h2>
+                  <div class="panel-sub">Booking pipeline</div>
+                </div>
+              </div>
+              <div class="status-donut-wrap">
+                <div class="donut" id="status-donut" style="--p:0"><span class="fw-bold h4 mb-0" id="status-donut-val">0%</span></div>
+                <div class="status-donut-labels chart-legend">
+                  <div class="lg-item"><span class="lg-dot coral"></span><span class="lg-name">Pending</span><span class="lg-value" id="lg-pending">0</span></div>
+                  <div class="lg-item"><span class="lg-dot teal"></span><span class="lg-name">Confirmed</span><span class="lg-value" id="lg-confirmed">0</span></div>
+                  <div class="lg-item"><span class="lg-dot light"></span><span class="lg-name">Completed</span><span class="lg-value" id="lg-completed">0</span></div>
+                  <div class="lg-item"><span class="lg-dot muted"></span><span class="lg-name">Cancelled</span><span class="lg-value" id="lg-cancelled">0</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Recent customers + Team & service insights ======= -->
+        <div class="row g-4 mb-4">
+          <div class="col-xl-7">
+            <div class="clay panel reveal">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Recent customers</h2>
+                  <div class="panel-sub">Latest clients and their pets</div>
+                </div>
+                <a href="customers.html" class="feature-link">All customers <span>»</span></a>
               </div>
               <div class="table-responsive">
                 <table class="table table-clay align-middle">
                   <thead>
-                    <tr><th>Pet</th><th>Client</th><th>Package</th><th>Date / time</th><th>Groomer</th><th>Status</th><th class="text-end">Actions</th></tr>
+                    <tr><th>Customer</th><th>Pet</th><th>Last booking</th><th>Status</th></tr>
                   </thead>
-                  <tbody id="upcoming-body"></tbody>
+                  <tbody id="recent-customers">
+                    <tr><td colspan="4" class="text-center text-secondary py-4" style="font-size:.9rem">Loading…</td></tr>
+                  </tbody>
                 </table>
               </div>
             </div>
+          </div>
 
-            <!-- ======= Quick book + History ======= -->
-            <div class="row g-4 mt-0">
-              <div class="col-md-6">
-                <div class="clay p-4 h-100 reveal">
-                  <h2 class="h5 mb-3">Quick book</h2>
-                  <form id="booking-form" class="booking-form p-0">
-                    <div class="row g-3">
-                      <div class="col-6">
-                        <label class="form-label" for="bk-pet">Pet type</label>
-                        <select id="bk-pet" name="petType" class="form-select form-clay">
-                          <option value="dog">Dog</option>
-                          <option value="cat">Cat</option>
-                          <option value="rabbit">Rabbit</option>
-                          <option value="bird">Bird</option>
-                        </select>
-                      </div>
-                      <div class="col-6">
-                        <label class="form-label" for="bk-name">Pet name</label>
-                        <input type="text" id="bk-name" name="petName" class="form-control form-clay" placeholder="e.g. Bella" required>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="bk-breed">Breed</label>
-                        <input type="text" id="bk-breed" name="breed" class="form-control form-clay" placeholder="e.g. Golden Retriever" required>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="bk-pkg">Grooming package</label>
-                        <select id="bk-pkg" name="package" class="form-select form-clay">
-                          <option value="essential">Essential Groom — $35</option>
-                          <option value="signature" selected>Signature Groom — $59</option>
-                          <option value="spa">Spa Package — $79</option>
-                          <option value="club">Unlimited Club — $79</option>
-                        </select>
-                      </div>
-                      <div class="col-6">
-                        <label class="form-label" for="bk-date">Date</label>
-                        <input type="date" id="bk-date" name="date" class="form-control form-clay" required>
-                      </div>
-                      <div class="col-6">
-                        <label class="form-label" for="bk-time">Time</label>
-                        <input type="time" id="bk-time" name="time" class="form-control form-clay" value="10:00" required>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="bk-groomer">Groomer</label>
-                        <select id="bk-groomer" name="groomer" class="form-select form-clay">
-                          <option>Mia Torres</option>
-                          <option>Leo Chen</option>
-                          <option>Amira Patel</option>
-                          <option>Noah Grant</option>
-                          <option>Sara Kim</option>
-                        </select>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="bk-client">Client name</label>
-                        <input type="text" id="bk-client" name="clientName" class="form-control form-clay" placeholder="e.g. Rachel H." required>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="bk-email">Client email</label>
-                        <input type="email" id="bk-email" name="clientEmail" class="form-control form-clay" placeholder="client@email.com" required>
-                      </div>
-                      <div class="col-12">
-                        <button class="btn-clay w-100" type="submit">Book Appointment</button>
-                      </div>
-                    </div>
-                  </form>
+          <div class="col-xl-5 d-flex flex-column gap-3">
+            <div class="clay panel reveal" style="transition-delay:.05s">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Service mix</h2>
+                  <div class="panel-sub">Bookings by package</div>
                 </div>
               </div>
-
-              <div class="col-md-6">
-                <div class="clay p-4 h-100 reveal">
-                  <h2 class="h5 mb-3">Grooming history &amp; invoices</h2>
-                  <div class="table-responsive">
-                    <table class="table table-clay align-middle">
-                      <thead><tr><th>Pet</th><th>Package</th><th>Amount</th><th>Date</th><th>Status</th><th></th></tr></thead>
-                      <tbody id="history-body"></tbody>
-                    </table>
-                  </div>
-                </div>
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <div class="donut" id="package-donut" style="--p:0;--size:105px;--thick:12px"><span class="fw-bold h6 mb-0" id="package-donut-val">—</span></div>
+                <div class="chart-legend flex-grow-1" id="package-legend"></div>
               </div>
             </div>
 
-          </div>
-
-<!-- ======= Groomer summary sidebar ======= -->
-          <div class="col-12 col-xl-3">
-            <div class="clay p-4 reveal">
-              <h2 class="h6 mb-3">Today's targets</h2>
-              <div class="vstack gap-2">
+            <div class="clay panel reveal" style="transition-delay:.1s">
+              <div class="panel-head">
                 <div>
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span style="font-size:.85rem;font-weight:700">Appointments</span>
-                    <span style="font-size:.78rem;font-weight:700;color:var(--pv-primary)">7 / 10</span>
-                  </div>
-                  <div class="progress" style="height:8px;border-radius:99px;background:var(--pv-bg-soft)">
-                    <div class="progress-bar" role="progressbar" style="width:70%;background:var(--pv-primary);border-radius:99px"></div>
-                  </div>
+                  <h2 class="panel-title">Top groomers</h2>
+                  <div class="panel-sub">Completed grooms this period</div>
                 </div>
-                <div>
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span style="font-size:.85rem;font-weight:700">Revenue</span>
-                    <span style="font-size:.78rem;font-weight:700;color:var(--pv-secondary)">$620 / $900</span>
-                  </div>
-                  <div class="progress" style="height:8px;border-radius:99px;background:var(--pv-bg-soft)">
-                    <div class="progress-bar" role="progressbar" style="width:69%;background:var(--pv-secondary);border-radius:99px"></div>
-                  </div>
-                </div>
-                <div>
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span style="font-size:.85rem;font-weight:700">Reviews</span>
-                    <span style="font-size:.78rem;font-weight:700;color:var(--pv-accent-deep)">5 / 5</span>
-                  </div>
-                  <div class="progress" style="height:8px;border-radius:99px;background:var(--pv-bg-soft)">
-                    <div class="progress-bar" role="progressbar" style="width:100%;background:var(--pv-accent-deep);border-radius:99px"></div>
-                  </div>
-                </div>
+              </div>
+              <div class="d-flex flex-column gap-3" id="top-groomers">
+                <div class="text-secondary text-center py-3" style="font-size:.9rem">Loading team stats…</div>
               </div>
             </div>
           </div>
-
         </div>
+
+        <!-- ======= Booking form + Today at a glance ======= -->
+        <div class="row g-4 mb-4" id="booking-section">
+          <div class="col-xl-6">
+            <div class="clay panel reveal">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Quick book a groom</h2>
+                  <div class="panel-sub">Schedule a new appointment for a client</div>
+                </div>
+              </div>
+              <form id="booking-form" class="booking-form p-0 mini-form">
+                <div class="row g-2">
+                  <div class="col-4">
+                    <label class="form-label" for="bk-pet">Pet type</label>
+                    <select id="bk-pet" name="petType" class="form-select form-clay">
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      <option value="rabbit">Rabbit</option>
+                      <option value="bird">Bird</option>
+                    </select>
+                  </div>
+                  <div class="col-4">
+                    <label class="form-label" for="bk-name">Pet name</label>
+                    <input type="text" id="bk-name" name="petName" class="form-control form-clay" placeholder="e.g. Bella" required>
+                  </div>
+                  <div class="col-4">
+                    <label class="form-label" for="bk-breed">Breed</label>
+                    <input type="text" id="bk-breed" name="breed" class="form-control form-clay" placeholder="e.g. Retriever" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bk-pkg">Grooming package</label>
+                    <select id="bk-pkg" name="package" class="form-select form-clay">
+                      <option value="essential">Essential Groom — $35</option>
+                      <option value="signature" selected>Signature Groom — $59</option>
+                      <option value="spa">Spa Package — $79</option>
+                      <option value="club">Unlimited Club — $79</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bk-groomer">Groomer</label>
+                    <select id="bk-groomer" name="groomer" class="form-select form-clay">
+                      <option>Mia Torres</option>
+                      <option>Leo Chen</option>
+                      <option>Amira Patel</option>
+                      <option>Noah Grant</option>
+                      <option>Sara Kim</option>
+                    </select>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label" for="bk-date">Date</label>
+                    <input type="date" id="bk-date" name="date" class="form-control form-clay" required>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label" for="bk-time">Time</label>
+                    <input type="time" id="bk-time" name="time" class="form-control form-clay" value="10:00" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bk-client">Client name</label>
+                    <input type="text" id="bk-client" name="clientName" class="form-control form-clay" placeholder="e.g. Rachel H." required>
+                  </div>
+                  <div class="col-12 col-md-8">
+                    <label class="form-label" for="bk-email">Client email</label>
+                    <input type="email" id="bk-email" name="clientEmail" class="form-control form-clay" placeholder="client@email.com" required>
+                  </div>
+                  <div class="col-12 col-md-4 d-flex align-items-end">
+                    <button class="btn-clay w-100" type="submit"><i class="fa-solid fa-paper-plane"></i> Book</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-xl-6 d-flex flex-column gap-3">
+            <div class="clay panel reveal" style="transition-delay:.05s">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Today's schedule</h2>
+                  <div class="panel-sub">Next appointments on the board</div>
+                </div>
+                <a href="appointments.html" class="feature-link">Manage <span>»</span></a>
+              </div>
+              <div class="schedule-list" id="today-list">
+                <div class="text-secondary text-center py-4" style="font-size:.9rem">Loading schedule…</div>
+              </div>
+            </div>
+
+            <div class="clay panel reveal" style="transition-delay:.1s">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Today at a glance</h2>
+                  <div class="panel-sub">Salon info &amp; reminders</div>
+                </div>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item"><span class="act-dot teal"></span><div><div class="act-title">Salon open · 8AM – 7PM</div><div class="act-sub">All groomers on duty today</div></div></div>
+                <div class="activity-item"><span class="act-dot coral"></span><div><div class="act-title">3 bookings await confirmation</div><div class="act-sub">Check the Appointments page</div></div></div>
+                <div class="activity-item"><span class="act-dot"></span><div><div class="act-title">New review from Rachel H. — 5 stars</div><div class="act-sub">Thank her in Messages</div></div></div>
+                <div class="activity-item"><span class="act-dot muted"></span><div><div class="act-title">Reminder: vaccination policy check</div><div class="act-sub">Due for all new clients</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -260,8 +325,8 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/main.js?v=20260910k"></script>
-  <script src="../assets/js/invoice.js?v=20260910k"></script>
-  <script src="../assets/js/admin.js?v=20260910k"></script>
+  <script src="../assets/js/main.js?v=20260917"></script>
+  <script src="../assets/js/invoice.js?v=20260917"></script>
+  <script src="../assets/js/admin.js?v=20260917"></script>
 </body>
 </html>

@@ -37,6 +37,7 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="groomers.html">Our Groomers</a></li>
             <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>

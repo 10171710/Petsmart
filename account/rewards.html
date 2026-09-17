@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loyalty Rewards — PawVille</title>
+  <meta name="description" content="Track your PawVille loyalty points, earn free baths and unlock member perks.">
+  <meta name="author" content="PawVille">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link id="bs-core-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="../assets/css/style.css?v=20260917" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout">
+    <aside id="admin-sidebar"></aside>
+
+    <div class="admin-main">
+      <header id="admin-topbar"></header>
+
+      <div class="admin-content">
+
+        <!-- ======= Hero ======= -->
+        <section class="welcome-hero">
+          <div>
+            <span class="eyebrow">PAWVILLE CLUB</span>
+            <h1 class="dash-hero-title">Loyalty rewards</h1>
+            <p class="text-secondary mb-0" style="max-width:560px">Earn <strong>10 points</strong> with every completed groom, then swap them for free baths and member perks.</p>
+          </div>
+          <div class="welcome-hero-actions">
+            <a class="btn-clay" href="bookings.html"><i class="fa-solid fa-calendar-plus"></i> Book to Earn</a>
+            <a class="btn-clay-outline" href="../pricing.html"><i class="fa-solid fa-scissors"></i> Pricing</a>
+          </div>
+        </section>
+
+        <!-- ======= Stat cards ======= -->
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-xl-3">
+            <div class="clay metric-card reveal">
+              <div class="metric-ico amber"><i class="fa-solid fa-star"></i></div>
+              <div><div class="metric-value"><span id="rewards-points">0</span></div><div class="metric-label">Reward points</div></div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="clay metric-card reveal" style="transition-delay:.05s">
+              <div class="metric-ico teal"><i class="fa-solid fa-scissors"></i></div>
+              <div><div class="metric-value"><span id="rewards-grooms">0</span></div><div class="metric-label">Completed grooms</div></div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="clay metric-card reveal" style="transition-delay:.1s">
+              <div class="metric-ico brown"><i class="fa-solid fa-bath"></i></div>
+              <div><div class="metric-value"><span id="rewards-earned">0</span></div><div class="metric-label">Free baths earned</div></div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="clay metric-card reveal" style="transition-delay:.15s">
+              <div class="metric-ico violet"><i class="fa-solid fa-crown"></i></div>
+              <div><div class="metric-value" id="rewards-tier">Paw Parent</div><div class="metric-label">Current tier</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Tier progress + Rewards grid ======= -->
+        <div class="row g-4 mb-4">
+          <div class="col-xl-5">
+            <div class="clay panel reveal">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Next reward</h2>
+                  <div class="panel-sub">Free bath &amp; shine</div>
+                </div>
+              </div>
+              <div class="status-donut-wrap">
+                <div class="donut" id="reward-tier-donut" style="--p:0"><span class="fw-bold h4 mb-0" id="reward-tier-pct">0%</span></div>
+                <div class="status-donut-labels chart-legend w-100">
+                  <div class="lg-item"><span class="lg-dot amber"></span><span class="lg-name">Points</span><span class="lg-value" id="reward-tier-pts">0 / 50</span></div>
+                </div>
+              </div>
+              <div class="clay-inset p-3 mt-3" style="border-radius:var(--radius-sm)">
+                <div class="progress" style="height:10px;border-radius:99px;background:var(--pv-bg-soft)">
+                  <div class="progress-bar" role="progressbar" id="reward-tier-fill" style="width:0%;background:var(--pv-secondary);border-radius:99px"></div>
+                </div>
+                <div class="text-secondary mt-2" style="font-size:.82rem" id="reward-tier-text">0 / 50 pts to a free bath</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-7">
+            <div class="clay panel reveal">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">How to earn</h2>
+                  <div class="panel-sub">Every completed groom adds to your balance</div>
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="clay-inset p-3 h-100" style="border-radius:var(--radius)">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="qa-ico" style="background:var(--pv-primary);color:#fff"><i class="fa-solid fa-scissors"></i></span>
+                      <div><div class="fw-bold" style="font-size:.92rem">Book a groom</div><div class="text-secondary" style="font-size:.8rem">Every completed service earns points</div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="clay-inset p-3 h-100" style="border-radius:var(--radius)">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="qa-ico"><i class="fa-solid fa-tag"></i></span>
+                      <div><div class="fw-bold" style="font-size:.92rem">10 pts per groom</div><div class="text-secondary" style="font-size:.8rem">Redeem 50 pts for a free bath</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3 mt-1">
+                <div class="col-6 col-md-3">
+                  <div class="clay text-center p-3 h-100" style="border-radius:var(--radius)">
+                    <span style="font-size:1.7rem"><i class="fa-solid fa-bath"></i></span>
+                    <div class="fw-bold mt-2" style="font-size:.85rem">Free bath</div>
+                    <div class="badge-clay bg-teal mt-1" style="font-size:.72rem">50 pts</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="clay text-center p-3 h-100" style="border-radius:var(--radius)">
+                    <span style="font-size:1.7rem"><i class="fa-solid fa-hand-scissors"></i></span>
+                    <div class="fw-bold mt-2" style="font-size:.85rem">Nail trim</div>
+                    <div class="badge-clay bg-teal mt-1" style="font-size:.72rem">80 pts</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="clay text-center p-3 h-100" style="border-radius:var(--radius)">
+                    <span style="font-size:1.7rem"><i class="fa-solid fa-percent"></i></span>
+                    <div class="fw-bold mt-2" style="font-size:.85rem">10% off</div>
+                    <div class="badge-clay bg-teal mt-1" style="font-size:.72rem">120 pts</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="clay text-center p-3 h-100" style="border-radius:var(--radius)">
+                    <span style="font-size:1.7rem"><i class="fa-solid fa-crown"></i></span>
+                    <div class="fw-bold mt-2" style="font-size:.85rem">VIP day</div>
+                    <div class="badge-clay bg-teal mt-1" style="font-size:.72rem">200 pts</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Reward history ======= -->
+        <div class="clay panel reveal">
+          <div class="panel-head">
+            <div>
+              <h2 class="panel-title">Points history</h2>
+              <div class="panel-sub">Points earned from your recent grooms</div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-clay align-middle">
+              <thead>
+                <tr><th>Pet</th><th>Package</th><th>Date</th><th class="text-end">Points</th></tr>
+              </thead>
+              <tbody id="rewards-history-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js?v=20260917"></script>
+  <script src="../assets/js/invoice.js?v=20260917"></script>
+  <script src="account.js?v=20260917"></script>
+</body>
+</html>

@@ -47,7 +47,7 @@
           <span class="icon-sun"><i class="fa-solid fa-sun"></i></span>
           <span class="icon-moon"><i class="fa-solid fa-moon"></i></span>
         </button>
-        <button class="nav-icon-btn d-none d-sm-inline-grid" type="button" id="dir-toggle" title="Toggle RTL / LTR layout" aria-label="Toggle direction">
+        <button class="nav-icon-btn" type="button" id="dir-toggle" title="Toggle RTL / LTR layout" aria-label="Toggle direction">
           <span id="dir-label" class="fw-bold" style="font-size:.78rem">RTL</span>
         </button>
         <a class="btn-clay btn-sm d-none d-md-inline-flex" href="login.html">Login</a>
@@ -65,12 +65,12 @@
       var loginLink = host.querySelector('.btn-clay[href="login.html"]');
       if (loginLink) {
         loginLink.textContent = session.role === "admin" ? "Admin" : "My Account";
-        loginLink.href = session.role === "admin" ? "admin/index.html" : "account/index.html";
+        loginLink.href = session.role === "admin" ? "admin/index.html" : "dashboard.html";
       }
       var mobileLogin = host.querySelector("#nav-mobile-login");
       if (mobileLogin) {
         mobileLogin.textContent = session.role === "admin" ? "Admin" : "My Account";
-        mobileLogin.href = session.role === "admin" ? "admin/index.html" : "account/index.html";
+        mobileLogin.href = session.role === "admin" ? "admin/index.html" : "dashboard.html";
       }
     }
     if (window.PawMarkActiveNav) window.PawMarkActiveNav();

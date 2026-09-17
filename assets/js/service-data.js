@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var BOOK = "login.html?redirect=account/index.html";
+  var BOOK = "login.html?redirect=dashboard.html";
 
   var SERVICES = {
     "bath-brush": {

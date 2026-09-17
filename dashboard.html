@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Dashboard — PawVille</title>
-  <meta name="description" content="Your PawVille dashboard — manage bookings, pets, invoices and loyalty rewards.">
+  <meta name="description" content="Your PawVille dashboard — track bookings, pets, loyalty points and invoices in one clean, friendly place.">
   <meta name="author" content="PawVille">
   <meta property="og:title" content="My Dashboard — PawVille">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/logo.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link id="bs-core-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="../assets/css/style.css?v=20260917" rel="stylesheet">
-  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link href="assets/css/style.css?v=20260917" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 <body class="admin-body">
 
@@ -26,28 +28,13 @@
 
       <div class="admin-content">
 
-        <!-- ======= Welcome hero ======= -->
-        <section class="welcome-hero">
-          <div>
-            <span class="eyebrow" id="dash-eyebrow">WELCOME BACK</span>
-            <h1 class="dash-hero-title">Hey there, <span id="dash-greeting">Pet Parent</span>!</h1>
-            <p class="text-secondary mb-0" style="max-width:560px">Manage your family's PawVille experience — bookings, pets, invoices and loyalty rewards, all in one place.</p>
-            <div class="pv-date"><i class="fa-solid fa-calendar-days"></i><span id="dash-today"></span></div>
-          </div>
-          <div class="welcome-hero-actions">
-            <a class="btn-clay" href="bookings.html"><i class="fa-solid fa-plus"></i> Book a Groom</a>
-            <button class="btn-clay-outline" type="button" id="btn-save-pet"><i class="fa-solid fa-paw"></i> Add a Pet</button>
-            <a class="btn-clay-outline" href="../pricing.html"><i class="fa-solid fa-scissors"></i> Pricing</a>
-          </div>
-        </section>
-
         <!-- ======= Metric cards ======= -->
         <div class="row g-3 mb-4">
           <div class="col-6 col-xl-3">
             <div class="clay metric-card reveal">
               <div class="metric-ico brown"><i class="fa-solid fa-calendar-check"></i></div>
               <div>
-                <div class="metric-value"><span id="stat-upcoming">0</span></div>
+                <div class="metric-value" id="stat-upcoming">0</div>
                 <div class="metric-label">Upcoming bookings</div>
                 <div class="metric-trend" style="color:var(--pv-secondary)">Pending or confirmed</div>
               </div>
@@ -57,7 +44,7 @@
             <div class="clay metric-card reveal" style="transition-delay:.05s">
               <div class="metric-ico teal"><i class="fa-solid fa-scissors"></i></div>
               <div>
-                <div class="metric-value"><span id="stat-completed">0</span></div>
+                <div class="metric-value" id="stat-completed">0</div>
                 <div class="metric-label">Completed grooms</div>
                 <div class="metric-trend" style="color:var(--pv-primary-deep)">Lifetime total</div>
               </div>
@@ -67,9 +54,9 @@
             <div class="clay metric-card reveal" style="transition-delay:.1s">
               <div class="metric-ico violet"><i class="fa-solid fa-paw"></i></div>
               <div>
-                <div class="metric-value"><span id="stat-pets">0</span></div>
+                <div class="metric-value" id="stat-pets">0</div>
                 <div class="metric-label">Pets in your pack</div>
-                <div class="metric-trend" style="color:var(--pv-secondary)"><a href="pets.html" style="color:inherit;text-decoration:none">Manage pets <span class="feature-arrow">»</span></a></div>
+                <div class="metric-trend"><a href="account/pets.html" class="text-decoration-none">Manage pets <span class="feature-arrow">»</span></a></div>
               </div>
             </div>
           </div>
@@ -77,7 +64,7 @@
             <div class="clay metric-card reveal" style="transition-delay:.15s">
               <div class="metric-ico amber"><i class="fa-solid fa-award"></i></div>
               <div>
-                <div class="metric-value"><span id="stat-points">0</span></div>
+                <div class="metric-value" id="stat-points">0</div>
                 <div class="metric-label">Loyalty points</div>
                 <div class="metric-trend" style="color:var(--pv-primary)">10 pts per groom</div>
               </div>
@@ -85,16 +72,16 @@
           </div>
         </div>
 
-        <!-- ======= Analytics row ======= -->
+        <!-- ======= Analytics + Upcoming ======= -->
         <div class="row g-4 mb-4">
-          <div class="col-xl-8">
+          <div class="col-xl-4">
             <div class="clay panel reveal">
               <div class="panel-head">
                 <div>
                   <h2 class="panel-title">Booking activity</h2>
-                  <div class="panel-sub">Your appointments across the week</div>
+                  <div class="panel-sub">Your grooms this week</div>
                 </div>
-                <a href="bookings.html" class="feature-link">My bookings <span>»</span></a>
+                <span class="clay-chip"><span class="dot"></span> Weekly</span>
               </div>
               <div class="chart-bars tall" id="analytics-bars">
                 <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Mon</span></div>
@@ -105,78 +92,53 @@
                 <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Sat</span></div>
                 <div class="cbar-group"><div class="cbar" style="height:0"><span class="cbar-val">0</span></div><span class="cbar-label">Sun</span></div>
               </div>
-              <div class="dash-strip mt-4">
-                <div class="ds-item">
-                  <div class="ds-value" style="color:var(--pv-primary)"><span id="stat-upcoming-2">0</span></div>
-                  <div class="ds-label">Upcoming</div>
-                </div>
-                <div class="ds-item">
-                  <div class="ds-value" style="color:var(--pv-secondary)"><span id="stat-completed-2">0</span></div>
-                  <div class="ds-label">Grooms done</div>
-                </div>
-                <div class="ds-item">
-                  <div class="ds-value" style="color:var(--pv-primary-deep)"><span id="next-slot">—</span></div>
-                  <div class="ds-label">Next appointment</div>
-                </div>
-              </div>
             </div>
           </div>
 
-          <div class="col-xl-4">
-            <div class="clay panel reveal mb-4" style="transition-delay:.05s">
+          <div class="col-xl-8">
+            <div class="clay panel reveal" style="transition-delay:.05s">
               <div class="panel-head">
                 <div>
-                  <h2 class="panel-title">Loyalty card</h2>
-                  <div class="panel-sub">58 pts - free bath &amp; shine</div>
+                  <h2 class="panel-title">Upcoming appointments</h2>
+                  <div class="panel-sub">Your next grooms, listed in date order</div>
                 </div>
-                <a href="rewards.html" class="feature-link">Rewards <span>»</span></a>
+                <a href="account/bookings.html" class="feature-link">View all <span>»</span></a>
               </div>
-              <div class="status-donut-wrap">
-                <div class="donut" id="loyalty-donut" style="--p:0"><span class="fw-bold h4 mb-0" id="stat-points-donut">0</span></div>
-                <div class="status-donut-labels chart-legend w-100">
-                  <div class="lg-item"><span class="lg-dot teal"></span><span class="lg-name">Free bath</span><span class="lg-value" id="loyalty-goal">50 pts</span></div>
-                  <div class="lg-item"><span class="lg-dot brown"></span><span class="lg-name">Progress</span><span class="lg-value" id="loyalty-pct">0%</span></div>
-                </div>
+              <div class="schedule-list" id="upcoming-list">
+                <div class="text-secondary text-center py-4" style="font-size:.9rem">Loading your appointments…</div>
               </div>
-              <div class="clay-inset p-3 mt-3" style="border-radius:var(--radius-sm)">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold" style="font-size:.88rem">Next reward</span>
-                  <span class="badge-clay bg-teal" style="font-size:.78rem">50 pts</span>
+              <div class="dash-strip mt-4">
+                <div class="ds-item">
+                  <div class="ds-value" style="color:var(--pv-primary)" id="stat-upcoming-2">0</div>
+                  <div class="ds-label">Active bookings</div>
                 </div>
-                <div class="progress mt-2" style="height:10px;border-radius:99px;background:var(--pv-bg-soft)">
-                  <div class="progress-bar" role="progressbar" id="loyalty-bar" style="width:0%;background:var(--pv-secondary);border-radius:99px"></div>
+                <div class="ds-item">
+                  <div class="ds-value" style="color:var(--pv-secondary)" id="next-slot">…</div>
+                  <div class="ds-label">Next free slot</div>
                 </div>
-                <div class="text-secondary mt-1" style="font-size:.78rem" id="loyalty-progress-text">0 / 50 pts to free bath</div>
+                <div class="ds-item">
+                  <div class="ds-value" style="color:var(--pv-primary-deep)" id="stat-completed-2">0</div>
+                  <div class="ds-label">Grooms completed</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ======= Upcoming + Pets ======= -->
+        <!-- ======= Pets summary ======= -->
         <div class="row g-4 mb-4">
-          <div class="col-xl-7">
+          <div class="col-12">
             <div class="clay panel reveal">
               <div class="panel-head">
                 <div>
-                  <h2 class="panel-title">Upcoming bookings</h2>
-                  <div class="panel-sub">Your next salon visits</div>
+                  <h2 class="panel-title">Your pack</h2>
+                  <div class="panel-sub">Pet profiles at a glance</div>
                 </div>
-                <a href="bookings.html" class="feature-link">View all <span>»</span></a>
+                <a href="account/pets.html" class="feature-link">Manage pets <span>»</span></a>
               </div>
-              <div class="schedule-list" id="upcoming-list"></div>
-            </div>
-          </div>
-
-          <div class="col-xl-5">
-            <div class="clay panel reveal" style="transition-delay:.05s">
-              <div class="panel-head">
-                <div>
-                  <h2 class="panel-title">My pets</h2>
-                  <div class="panel-sub">Your pampered pack</div>
-                </div>
-                <a href="pets.html" class="feature-link">Manage <span>»</span></a>
+              <div class="row g-3" id="pets-summary">
+                <div class="col-12 text-secondary text-center py-4" style="font-size:.9rem">No pets saved yet — add your first one.</div>
               </div>
-              <div id="pets-summary"></div>
             </div>
           </div>
         </div>
@@ -190,14 +152,14 @@
               <div class="panel-head">
                 <div>
                   <h2 class="panel-title">Recently completed</h2>
-                  <div class="panel-sub">Grooms with downloadable invoices</div>
+                  <div class="panel-sub">Past grooms with downloadable invoices</div>
                 </div>
-                <a href="invoices.html" class="feature-link">Invoices <span>»</span></a>
+                <a href="account/invoices.html" class="feature-link">Invoices <span>»</span></a>
               </div>
               <div class="table-responsive">
                 <table class="table table-clay align-middle">
                   <thead>
-                    <tr><th>Pet</th><th>Package</th><th>Date</th><th class="text-end">Invoice</th></tr>
+                    <tr><th>Pet</th><th>Package</th><th>Date</th><th>Amount</th><th>Status</th><th class="text-end">Invoice</th></tr>
                   </thead>
                   <tbody id="history-body"></tbody>
                 </table>
@@ -228,9 +190,10 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/main.js?v=20260917"></script>
-  <script src="../assets/js/invoice.js?v=20260917"></script>
-  <script src="account.js?v=20260917"></script>
+  <script src="assets/js/main.js?v=20260917"></script>
+  <script src="assets/js/invoice.js?v=20260917"></script>
+  <script src="assets/js/dashboard.js?v=20260917"></script>
 </body>
 </html>

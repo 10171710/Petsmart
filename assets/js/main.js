@@ -45,12 +45,27 @@
   };
 
   window.PawDir = {
+    /* Bootstrap's default build only mirrors what CSS logical properties
+       cover; several core components (dropdown menus, modal offsets, grid
+       gutters, form-check spacing) still use physical left/right internally
+       and need the dedicated RTL build to avoid overlapping in RTL mode. */
+    swapBootstrap: function (dir) {
+      var link = document.getElementById("bs-core-css") || document.querySelector('link[href*="bootstrap.min.css"], link[href*="bootstrap.rtl.min.css"]');
+      if (!link) return;
+      var ltrHref = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
+      var rtlHref = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css";
+      var next = dir === "rtl" ? rtlHref : ltrHref;
+      if (link.getAttribute("href") !== next) link.setAttribute("href", next);
+    },
     apply: function (dir) {
       var root = document.documentElement;
       root.setAttribute("dir", dir);
       try { localStorage.setItem(STORAGE_DIR, dir); } catch (e) {}
-      var label = document.getElementById("dir-label");
-      if (label) label.textContent = dir === "rtl" ? "LTR" : "RTL";
+      var labels = document.querySelectorAll("#dir-label, [data-dir-label]");
+      labels.forEach(function (label) {
+        label.textContent = dir === "rtl" ? "LTR" : "RTL";
+      });
+      this.swapBootstrap(dir);
       if (dir === "rtl") {
         this.fixDots();
       } else {
@@ -69,8 +84,9 @@
       var saved = this.current();
       if (saved) {
         this.apply(saved);
-      } else if (document.documentElement.getAttribute("dir") === "rtl") {
-        this.fixDots();
+      } else {
+        this.swapBootstrap(document.documentElement.getAttribute("dir") === "rtl" ? "rtl" : "ltr");
+        if (document.documentElement.getAttribute("dir") === "rtl") this.fixDots();
       }
       this.observeDots();
     },
@@ -411,7 +427,7 @@
           if (btn) { btn.disabled = true; btn.innerHTML = "Creating account..."; }
           PawToast(regRole === "admin" ? "Admin account created - welcome aboard!" : "Account created - welcome!");
           setTimeout(function () {
-            window.location.href = regRole === "admin" ? "admin/index.html" : "account/index.html";
+            window.location.href = regRole === "admin" ? "admin/index.html" : "dashboard.html";
           }, 1000);
           return;
         }
@@ -446,7 +462,7 @@
         if (btn) { btn.disabled = true; btn.innerHTML = "Signing in..."; }
         PawToast("Welcome back!");
         setTimeout(function () {
-          window.location.href = origin || (isAdmin ? "admin/index.html" : "account/index.html");
+          window.location.href = origin || (isAdmin ? "admin/index.html" : "dashboard.html");
         }, 1000);
       });
     });
