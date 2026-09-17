@@ -1540,7 +1540,16 @@ a:hover { color: var(--pv-primary-deep); }
   }
   .pv-navbar .navbar-collapse .btn-clay.nav-link {
     min-height: 44px;
-    color: #fff;
+    color: #fff !important;
+    font-size: 0.92rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .pv-navbar .navbar-collapse .btn-clay-outline.nav-link {
+    min-height: 44px;
+    font-size: 0.92rem;
+    justify-content: center;
+    text-align: center;
   }
 
   /* Topbars, Sidebars & Auth on mobile 360px */

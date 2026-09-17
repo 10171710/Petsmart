@@ -29,7 +29,7 @@
           <span id="dir-label" class="fw-bold" style="font-size:.78rem">RTL</span>
         </button>
         <a class="btn-clay btn-sm d-none d-md-inline-flex" href="login.html" id="nav-login-btn">Login</a>
-        <a class="btn-clay btn-sm d-inline-flex" href="dashboard.html" id="nav-dashboard-btn"><i class="fa-solid fa-chart-line me-1"></i> Dashboard</a>
+        <a class="btn-clay btn-sm d-none d-xl-inline-flex" href="dashboard.html" id="nav-dashboard-btn">Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pvMainNav" aria-controls="pvMainNav" aria-expanded="false" aria-label="Toggle navigation">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -50,7 +50,7 @@
           <li class="nav-item"><a class="nav-link" href="pricing.html" data-nav="pricing">Pricing</a></li>
           <li class="nav-item"><a class="nav-link" href="blog.html" data-nav="blog">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html" data-nav="contact">Contact</a></li>
-          <li class="nav-item d-lg-none mt-2"><a class="nav-link fw-semibold btn-clay text-center" href="dashboard.html" id="nav-mobile-dashboard"><i class="fa-solid fa-chart-line me-1"></i> Dashboard</a></li>
+          <li class="nav-item d-lg-none mt-2"><a class="nav-link fw-semibold btn-clay text-center text-white" href="dashboard.html" id="nav-mobile-dashboard"><i class="fa-solid fa-chart-line me-1"></i> Dashboard</a></li>
           <li class="nav-item d-lg-none mt-2"><a class="nav-link fw-semibold btn-clay-outline text-center" href="login.html" id="nav-mobile-login">Login</a></li>
         </ul>
       </div>
