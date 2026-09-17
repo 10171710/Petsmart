@@ -474,7 +474,7 @@ a:hover { color: var(--pv-primary-deep); }
 
 .nav-icon-btn {
   width: 42px; height: 42px;
-  display: grid; place-items: center;
+  display: inline-flex; align-items: center; justify-content: center;
   border-radius: 50%;
   border: 1px solid var(--pv-line);
   background: var(--pv-surface);
@@ -482,9 +482,19 @@ a:hover { color: var(--pv-primary-deep); }
   box-shadow: var(--clay-raised-sm);
   transition: all 0.2s ease;
   font-size: 1.05rem;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 .nav-icon-btn:hover { color: var(--pv-primary); transform: translateY(-2px); }
+.nav-icon-btn:active, .nav-icon-btn.active { color: var(--pv-primary); }
+
 .nav-icon-btn .icon-sun { display: none; }
+.nav-icon-btn .icon-moon { display: inline-flex; align-items: center; justify-content: center; }
+
+[data-bs-theme="dark"] .nav-icon-btn .icon-sun { display: inline-flex; align-items: center; justify-content: center; }
+[data-bs-theme="dark"] .nav-icon-btn .icon-moon { display: none; }
 
 .auth-actions {
   position: fixed; top: 18px; inset-inline-end: 18px; z-index: 1060;
@@ -504,6 +514,9 @@ a:hover { color: var(--pv-primary-deep); }
 @media (max-width: 991.98px) {
   .pv-navbar .pv-container { flex-wrap: wrap; }
   .pv-navbar .navbar-collapse {
+    flex-basis: 100%;
+    width: 100%;
+    order: 3;
     background: var(--pv-surface);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-sm);
@@ -1358,7 +1371,10 @@ a:hover { color: var(--pv-primary-deep); }
 [dir="rtl"] .testimonial-card { text-align: center; }
 
 /* RTL brand & navbar alignment */
-[dir="rtl"] .navbar-brand { margin-inline-end: 0; margin-inline-start: 0; }
+[dir="rtl"] .navbar-brand { margin-inline-end: auto; }
+@media (min-width: 992px) {
+  [dir="rtl"] .navbar-brand { margin-inline-end: 0.5rem; }
+}
 [dir="rtl"] .navbar-brand img,
 [dir="rtl"] .sidebar-brand img { display: inline-block; flex-shrink: 0; }
 [dir="rtl"] .pv-navbar .pv-container { flex-direction: row; }
@@ -1373,12 +1389,7 @@ a:hover { color: var(--pv-primary-deep); }
 /* --------------------------------------------------------------------------
    11. RESPONSIVE & MOTION
    -------------------------------------------------------------------------- */
-/* Kept intentionally subtle: a large translateY + long duration meant panels
-   were still visibly sliding/fading — translated but not yet fully opaque —
-   while the row below had already settled into place, which is what read as
-   one panel's content "hiding behind" another during page load. A short,
-   small-offset fade removes that overlap window almost entirely. */
-.reveal { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 1199.98px) {
@@ -1675,12 +1686,7 @@ a:hover { color: var(--pv-primary-deep); }
   position: relative;
   box-sizing: border-box;
 }
-/* Only stretch a panel to match its row when it's the sole panel in its
-   column. Two stacked panels in one column (e.g. a stat card above a list)
-   both being forced to height:100% each blew the column height far past
-   its content, leaving huge empty gaps and pushing following rows around —
-   another source of the "content behind other content" look during load. */
-.row > [class*="col"] > .panel:only-child {
+.row > [class*="col"] > .panel {
   height: 100%;
 }
 .d-flex.flex-column > .panel {
@@ -1946,15 +1952,11 @@ a:hover { color: var(--pv-primary-deep); }
 .admin-sidebar .nav-link.active { background: var(--pv-bg-soft); color: var(--pv-primary); box-shadow: none; }
 .admin-sidebar .nav-link.active .nav-ico { background: transparent; box-shadow: none; color: var(--pv-primary); }
 
-/* RTL fine-tuning for the dashboard shell (sidebar mirrors to the right).
-   NOTE: .btn-clay / .btn-clay-outline are plain `display:flex` rows with no
-   explicit flex-direction, so the flexbox spec already re-anchors "start"
-   to the right and mirrors the icon+label order for free once dir="rtl" is
-   set — no row-reverse needed. Forcing row-reverse here double-flips the
-   order and knocks the sidebar buttons out of alignment with every other
-   button on the site, which is the RTL toggle misalignment this fixes. */
+/* RTL fine-tuning for the dashboard shell (sidebar mirrors to the right) */
 [dir="rtl"] .admin-sidebar { box-shadow: -8px 0 30px var(--clay-deep); }
 [dir="rtl"] .schedule-item:hover { transform: translateX(-4px); }
 [dir="rtl"] .feature-link span { display: inline-block; transform: scaleX(-1); }
 [dir="rtl"] .feature-arrow,
 [dir="rtl"] .pager-arrow { display: inline-block; transform: scaleX(-1); }
+[dir="rtl"] .sidebar-cta .btn-clay,
+[dir="rtl"] .sidebar-cta .btn-clay-outline { flex-direction: row-reverse; }

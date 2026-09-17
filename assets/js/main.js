@@ -20,14 +20,19 @@
       var root = document.documentElement;
       root.setAttribute("data-bs-theme", theme);
       try { localStorage.setItem(STORAGE_THEME, theme); } catch (e) {}
+      var isDark = theme === "dark";
       var icon = document.getElementById("theme-icon");
       if (icon) {
-        var isDark = theme === "dark";
         icon.classList.toggle("icon-sun", isDark);
         icon.classList.toggle("icon-moon", !isDark);
       }
       var label = document.getElementById("theme-label");
       if (label) label.textContent = isDark ? "Light" : "Dark";
+      var themeBtns = document.querySelectorAll("#theme-toggle, [data-theme-toggle]");
+      themeBtns.forEach(function (btn) {
+        btn.setAttribute("title", isDark ? "Switch to light mode" : "Switch to dark mode");
+        btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      });
     },
     current: function () {
       try { return localStorage.getItem(STORAGE_THEME); } catch (e) {}
@@ -64,6 +69,12 @@
       var labels = document.querySelectorAll("#dir-label, [data-dir-label]");
       labels.forEach(function (label) {
         label.textContent = dir === "rtl" ? "LTR" : "RTL";
+      });
+      var dirBtns = document.querySelectorAll("#dir-toggle, [data-dir-toggle]");
+      dirBtns.forEach(function (btn) {
+        btn.setAttribute("title", dir === "rtl" ? "Switch to LTR layout" : "Switch to RTL layout");
+        btn.setAttribute("aria-label", dir === "rtl" ? "Switch to LTR layout" : "Switch to RTL layout");
+        btn.classList.toggle("active", dir === "rtl");
       });
       this.swapBootstrap(dir);
       if (dir === "rtl") {
