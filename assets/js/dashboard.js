@@ -42,6 +42,40 @@
   function loadPets() {
     try { return JSON.parse(localStorage.getItem(PETS_KEY)) || []; } catch (e) { return []; }
   }
+  function savePets(list) {
+    try { localStorage.setItem(PETS_KEY, JSON.stringify(list)); } catch (e) {}
+  }
+
+  function seedDemo() {
+    var appts = loadAppointments();
+    var email = myEmail() || "demo@pawville.com";
+    var hasMyDemo = appts.some(function (a) { return String(a.email || "").toLowerCase() === email.toLowerCase(); });
+    if (!hasMyDemo) {
+      var today = new Date();
+      var iso = function (offset) { var d = new Date(today); d.setDate(d.getDate() + offset); return d.toDateString(); };
+      var demoList = [
+        { id: "PV-481201", pet: "dog", petName: "Bella", breed: "Golden Retriever", client: "Alex Morgan", email: email, packageKey: "signature", packageLabel: "Signature Groom", price: 59, date: iso(1), time: "10:00", groomer: "Mia Torres", status: "confirmed" },
+        { id: "PV-481202", pet: "dog", petName: "Milo", breed: "Beagle", client: "Alex Morgan", email: email, packageKey: "essential", packageLabel: "Essential Groom", price: 35, date: iso(4), time: "14:00", groomer: "Leo Chen", status: "pending" },
+        { id: "PV-481206", pet: "dog", petName: "Bella", breed: "Golden Retriever", client: "Alex Morgan", email: email, packageKey: "spa", packageLabel: "Spa Package", price: 79, date: iso(-6), time: "11:30", groomer: "Amira Patel", status: "completed" },
+        { id: "PV-481207", pet: "dog", petName: "Milo", breed: "Beagle", client: "Alex Morgan", email: email, packageKey: "essential", packageLabel: "Essential Groom", price: 35, date: iso(-16), time: "15:00", groomer: "Mia Torres", status: "completed" }
+      ];
+      saveAppointments(appts.concat(demoList));
+    }
+  }
+
+  function seedPets() {
+    var pets = loadPets();
+    var email = myEmail() || "demo@pawville.com";
+    var hasMyPets = pets.some(function (p) { return String(p.email || "").toLowerCase() === email.toLowerCase(); });
+    if (!hasMyPets) {
+      var demoPets = [
+        { id: "PT-7701", email: email, name: "Bella", species: "dog", breed: "Golden Retriever", age: "3 years", notes: "Loves belly rubs & blueberry shampoo" },
+        { id: "PT-7702", email: email, name: "Milo", species: "dog", breed: "Beagle", age: "2 years", notes: "Friendly, sensitive ears" },
+        { id: "PT-7703", email: email, name: "Luna", species: "cat", breed: "British Shorthair", age: "4 years", notes: "Quiet and gentle" }
+      ];
+      savePets(pets.concat(demoPets));
+    }
+  }
 
   function myAppointments() {
     var email = myEmail();
@@ -506,13 +540,19 @@
   }
 
   /* ------------------------------------------------------------------
-     Init (session-guarded)
+     Init (direct dashboard access)
   ------------------------------------------------------------------ */
   function init() {
     if (!session()) {
-      window.location.href = "login.html?redirect=dashboard.html";
-      return;
+      var defaultSession = {
+        role: "user",
+        name: "Alex Morgan",
+        email: "demo@pawville.com"
+      };
+      if (window.PawSession) PawSession.set(defaultSession);
     }
+    seedDemo();
+    seedPets();
     inject();
     markActive();
     bindSidebar();
