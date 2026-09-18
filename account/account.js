@@ -51,6 +51,8 @@
     try { localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(list)); } catch (e) {}
   }
 
+  function myName() { var s = session(); return s && s.name ? s.name : "Pet Parent"; }
+
   function seedDemo() {
     var appts = loadAppointments();
     var email = myEmail() || "demo@pawville.com";
@@ -59,10 +61,10 @@
       var today = new Date();
       var iso = function (offset) { var d = new Date(today); d.setDate(d.getDate() + offset); return d.toDateString(); };
       var demoList = [
-        { id: "PV-481201", pet: "dog", petName: "Bella", breed: "Golden Retriever", client: "Alex Morgan", email: email, packageKey: "signature", packageLabel: "Signature Groom", price: 59, date: iso(1), time: "10:00", groomer: "Mia Torres", status: "confirmed" },
-        { id: "PV-481202", pet: "dog", petName: "Milo", breed: "Beagle", client: "Alex Morgan", email: email, packageKey: "essential", packageLabel: "Essential Groom", price: 35, date: iso(4), time: "14:00", groomer: "Leo Chen", status: "pending" },
-        { id: "PV-481206", pet: "dog", petName: "Bella", breed: "Golden Retriever", client: "Alex Morgan", email: email, packageKey: "spa", packageLabel: "Spa Package", price: 79, date: iso(-6), time: "11:30", groomer: "Amira Patel", status: "completed" },
-        { id: "PV-481207", pet: "dog", petName: "Milo", breed: "Beagle", client: "Alex Morgan", email: email, packageKey: "essential", packageLabel: "Essential Groom", price: 35, date: iso(-16), time: "15:00", groomer: "Mia Torres", status: "completed" }
+        { id: "PV-481201", pet: "dog", petName: "Bella", breed: "Golden Retriever", client: myName(), email: email, packageKey: "signature", packageLabel: "Signature Groom", price: 59, date: iso(1), time: "10:00", groomer: "Mia Torres", status: "confirmed" },
+        { id: "PV-481202", pet: "dog", petName: "Milo", breed: "Beagle", client: myName(), email: email, packageKey: "essential", packageLabel: "Essential Groom", price: 35, date: iso(4), time: "14:00", groomer: "Leo Chen", status: "pending" },
+        { id: "PV-481206", pet: "dog", petName: "Bella", breed: "Golden Retriever", client: myName(), email: email, packageKey: "spa", packageLabel: "Spa Package", price: 79, date: iso(-6), time: "11:30", groomer: "Amira Patel", status: "completed" },
+        { id: "PV-481207", pet: "dog", petName: "Milo", breed: "Beagle", client: myName(), email: email, packageKey: "essential", packageLabel: "Essential Groom", price: 35, date: iso(-16), time: "15:00", groomer: "Mia Torres", status: "completed" }
       ];
       saveAppointments(appts.concat(demoList));
     }
@@ -111,7 +113,7 @@
   ------------------------------------------------------------------ */
   var SIDEBAR_TEMPLATE = `
   <aside class="admin-sidebar" id="admin-sidebar">
-    <a class="sidebar-brand" href="index.html">
+    <a class="sidebar-brand" href="../index.html">
       <img src="${LOGO}" alt="PawVille logo">
       <div>
         <div class="bb-name">Paw<span style="color:var(--pv-primary)">Ville</span></div>
@@ -777,7 +779,7 @@
     if (!session()) {
       var defaultSession = {
         role: "user",
-        name: "Alex Morgan",
+        name: "demo@pawville.com".split("@")[0].replace(/^./, function (c) { return c.toUpperCase(); }),
         email: "demo@pawville.com"
       };
       if (window.PawSession) PawSession.set(defaultSession);

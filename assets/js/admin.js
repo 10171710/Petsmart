@@ -22,7 +22,7 @@
   ------------------------------------------------------------------ */
   var SIDEBAR_TEMPLATE = `
   <aside class="admin-sidebar" id="admin-sidebar">
-    <a class="sidebar-brand" href="index.html">
+    <a class="sidebar-brand" href="../index.html">
       <img src="${LOGO}" alt="PawVille logo">
       <div>
         <div class="bb-name">Paw<span style="color:var(--pv-primary)">Ville</span></div>
@@ -104,7 +104,7 @@
     var tb = document.getElementById("admin-topbar");
     if (tb) tb.outerHTML = TOPBAR_TEMPLATE;
     var greet = document.getElementById("admin-greet-name");
-    if (greet) greet.textContent = ADMIN_NAME.split(" ")[0];
+    if (greet) greet.textContent = (ADMIN_NAME || "Pet Parent").split(" ")[0];
   }
 
   /* ------------------------------------------------------------------

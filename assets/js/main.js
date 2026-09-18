@@ -448,6 +448,8 @@
         var loginPass = (passInput && passInput.value) ? String(passInput.value) : "";
         var roleInput = f.querySelector('[name="role"]');
         var isAdmin = roleInput && roleInput.value === "admin";
+        var nameInput = f.querySelector('[name="name"]');
+        var enteredName = (nameInput && nameInput.value) ? String(nameInput.value).trim().replace(/\s+/g, " ") : "";
         var accounts = [];
         try { accounts = JSON.parse(localStorage.getItem("pv-accounts")) || []; } catch (err) {}
         var match = null;
@@ -464,7 +466,7 @@
           });
           return;
         }
-        var loginName = match ? match.name : (isAdmin ? "Mia Torres" : loginEmail.split("@")[0].replace(/^./, function (c) { return c.toUpperCase(); }));
+        var loginName = enteredName || (match ? match.name : (isAdmin ? "Mia Torres" : loginEmail.split("@")[0].replace(/^./, function (c) { return c.toUpperCase(); })));
         PawSession.set({
           role: isAdmin ? "admin" : "user",
           name: loginName,
