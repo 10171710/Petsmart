@@ -1128,9 +1128,9 @@ a:hover { color: var(--pv-primary-deep); }
   margin: 10px 8px 4px;
 }
 .sidebar-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding: 2px 4px; }
-.sidebar-brand img { width: 36px; height: 36px; }
-.sidebar-brand .bb-name { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; line-height: 1; }
-.sidebar-brand .bb-sub { font-size: 0.72rem; color: var(--pv-muted); font-weight: 700; }
+  .sidebar-brand img { width: 42px; height: 42px; }
+  .sidebar-brand .bb-name { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; line-height: 1; color: #000; }
+  .sidebar-brand .bb-sub { font-size: 0.72rem; color: var(--pv-muted); font-weight: 700; }
 
 .admin-topbar {
   position: sticky; top: 0; z-index: 1035;
@@ -1591,10 +1591,10 @@ a:hover { color: var(--pv-primary-deep); }
     padding: 2px;
   }
   .sidebar-brand img {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
     flex-shrink: 0;
   }
   .sidebar-brand .bb-name {

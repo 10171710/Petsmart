@@ -116,7 +116,7 @@
     <a class="sidebar-brand" href="../index.html">
       <img src="${LOGO}" alt="PawVille logo">
       <div>
-        <div class="bb-name">Paw<span style="color:var(--pv-primary)">Ville</span></div>
+        <div class="bb-name">Paw<span style="color:#000">Ville</span></div>
         <div class="bb-sub">My Account</div>
       </div>
     </a>
